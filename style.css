@@ -898,3 +898,176 @@ body{
     height:35px;
     background:rgba(0,170,255,.2);
 }
+/* ======================================
+   BRODAY1 V6 - Premium Music Player
+====================================== */
+
+.music-player{
+    margin-top:35px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(0,170,255,.25);
+    backdrop-filter:blur(18px);
+    box-shadow:0 0 25px rgba(0,170,255,.15);
+}
+
+.music-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.music-header button{
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0099ff,#00d4ff);
+    color:white;
+    cursor:pointer;
+    font-size:22px;
+    transition:.3s;
+}
+
+.music-header button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px #00aaff;
+}
+
+.song-details{
+    flex:1;
+    text-align:left;
+}
+
+.song-details h3{
+    font-size:18px;
+    color:#ffffff;
+}
+
+.song-details p{
+    color:#8fbfff;
+    font-size:13px;
+    margin-top:4px;
+}
+
+.progress-wrapper{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:15px 0;
+}
+
+.progress-wrapper span{
+    width:45px;
+    font-size:13px;
+    color:#9fd8ff;
+}
+
+#progress{
+    flex:1;
+    appearance:none;
+    height:6px;
+    border-radius:20px;
+    background:#1b2745;
+    cursor:pointer;
+}
+
+#progress::-webkit-slider-thumb{
+    appearance:none;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#00aaff;
+    box-shadow:0 0 12px #00aaff;
+}
+
+.volume-wrapper{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:10px;
+}
+
+.volume-wrapper i{
+    color:#00aaff;
+    font-size:18px;
+}
+
+#volume{
+    flex:1;
+    appearance:none;
+    height:6px;
+    border-radius:20px;
+    background:#1b2745;
+}
+
+#volume::-webkit-slider-thumb{
+    appearance:none;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#00d4ff;
+    box-shadow:0 0 10px #00d4ff;
+    cursor:pointer;
+}
+
+/* ======================================
+   Back To Top Button
+====================================== */
+
+#backToTop{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0099ff,#00d4ff);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    display:none;
+    z-index:9999;
+    transition:.3s;
+}
+
+#backToTop:hover{
+    transform:translateY(-5px) scale(1.08);
+    box-shadow:0 0 25px #00aaff;
+}
+
+/* ======================================
+   Mobile
+====================================== */
+
+@media(max-width:768px){
+
+    .music-header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .song-details{
+        text-align:center;
+    }
+
+    .progress-wrapper{
+        gap:8px;
+    }
+
+    .progress-wrapper span{
+        width:40px;
+        font-size:11px;
+    }
+
+    #backToTop{
+        width:50px;
+        height:50px;
+        right:18px;
+        bottom:18px;
+    }
+
+}
