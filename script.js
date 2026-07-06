@@ -175,3 +175,64 @@ tsParticles.load("particles-js", {
 
   }
 });
+// ===== Particles Background =====
+
+tsParticles.load("particles-js", {
+
+    background:{
+        color:"transparent"
+    },
+
+    particles:{
+
+        number:{
+            value:70
+        },
+
+        color:{
+            value:"#00aaff"
+        },
+
+        links:{
+            enable:true,
+            color:"#00aaff",
+            distance:150,
+            opacity:0.3
+        },
+
+        move:{
+            enable:true,
+            speed:1.5
+        },
+
+        size:{
+            value:2
+        },
+
+        opacity:{
+            value:0.5
+        }
+
+    },
+
+    interactivity:{
+
+        events:{
+            onHover:{
+                enable:true,
+                mode:"grab"
+            }
+        },
+
+        modes:{
+            grab:{
+                distance:180,
+                links:{
+                    opacity:1
+                }
+            }
+        }
+
+    }
+
+});
