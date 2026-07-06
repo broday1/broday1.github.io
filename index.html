@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -35,6 +36,19 @@
     <!-- Custom Cursor -->
     <div class="cursor"></div>
 
+    <!-- Video Background -->
+    <div class="video-bg">
+
+        <video autoplay muted loop playsinline id="bgVideo">
+
+            <source src="background.mp4" type="video/mp4">
+
+        </video>
+
+        <div class="video-overlay"></div>
+
+    </div>
+
     <!-- Particles -->
     <div id="particles-js"></div>
 
@@ -44,14 +58,16 @@
         <span></span>
     </div>
 
-    <!-- Background -->
+    <!-- Background Glow -->
     <div class="bg"></div>
 
-    <!-- Main Container -->
+    <!-- Main -->
     <div class="container">
 
         <!-- Profile -->
-        <img src="profile.jpg" class="profile" alt="BRODAY1">
+        <img src="profile.jpg"
+             class="profile"
+             alt="BRODAY1">
 
         <h1>BRODAY1</h1>
 
@@ -90,7 +106,7 @@
 
         </div>
 
-        <!-- Social Links -->
+        <!-- Links -->
         <div class="links">
 
             <a href="https://discord.gg/fcas66FC" target="_blank">
@@ -202,7 +218,9 @@
             </div>
 
             <audio id="music">
+
                 <source src="music.mp3" type="audio/mpeg">
+
             </audio>
 
         </div>
