@@ -220,3 +220,109 @@ if(cursor){
     });
 
 }
+/* =====================================
+   BRODAY1 V6 Premium Music Player
+===================================== */
+
+const music = document.getElementById("music");
+const playBtn = document.getElementById("playMusic");
+const progress = document.getElementById("progress");
+const volume = document.getElementById("volume");
+const currentTime = document.getElementById("currentTime");
+const duration = document.getElementById("duration");
+
+if (music && playBtn) {
+
+    music.volume = 0.4;
+
+    playBtn.onclick = () => {
+
+        if (music.paused) {
+
+            music.play();
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+
+        } else {
+
+            music.pause();
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+
+        }
+
+    };
+
+    music.addEventListener("loadedmetadata", () => {
+
+        progress.max = Math.floor(music.duration);
+
+        duration.textContent = formatTime(music.duration);
+
+    });
+
+    music.addEventListener("timeupdate", () => {
+
+        progress.value = music.currentTime;
+
+        currentTime.textContent = formatTime(music.currentTime);
+
+    });
+
+    progress.addEventListener("input", () => {
+
+        music.currentTime = progress.value;
+
+    });
+
+    volume.addEventListener("input", () => {
+
+        music.volume = volume.value / 100;
+
+    });
+
+    music.addEventListener("ended", () => {
+
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+
+    });
+
+}
+
+function formatTime(time) {
+
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+}
+
+/* =====================================
+   Back To Top
+===================================== */
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 250) {
+
+        backToTop.style.display = "flex";
+
+    } else {
+
+        backToTop.style.display = "none";
+
+    }
+
+});
+
+backToTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+        behavior: "smooth"
+
+    });
+
+});
