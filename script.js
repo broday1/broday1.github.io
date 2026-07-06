@@ -96,3 +96,82 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("BRODAY1 Website Loaded Successfully");
 
 });
+// ===== Particles Background =====
+
+tsParticles.load("particles-js", {
+  fullScreen: {
+    enable: false
+  },
+
+  background: {
+    color: "transparent"
+  },
+
+  fpsLimit: 60,
+
+  particles: {
+
+    number: {
+      value: 80,
+      density: {
+        enable: true,
+        area: 800
+      }
+    },
+
+    color: {
+      value: "#00aaff"
+    },
+
+    links: {
+      enable: true,
+      color: "#00aaff",
+      distance: 150,
+      opacity: 0.3,
+      width: 1
+    },
+
+    move: {
+      enable: true,
+      speed: 1.5
+    },
+
+    size: {
+      value: {
+        min: 1,
+        max: 4
+      }
+    },
+
+    opacity: {
+      value: 0.7
+    }
+
+  },
+
+  interactivity: {
+
+    events: {
+
+      onHover: {
+        enable: true,
+        mode: "grab"
+      },
+
+      resize: true
+
+    },
+
+    modes: {
+
+      grab: {
+        distance: 180,
+        links: {
+          opacity: 0.8
+        }
+      }
+
+    }
+
+  }
+});
