@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>BRODAY1</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -18,8 +22,9 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- Particles -->
+    <!-- tsParticles -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -27,10 +32,13 @@
     <!-- Mouse Light -->
     <div class="mouse-light"></div>
 
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
     <!-- Particles -->
     <div id="particles-js"></div>
 
-    <!-- Loading Screen -->
+    <!-- Loading -->
     <div class="loader">
         <h1>BRODAY1</h1>
         <span></span>
@@ -39,6 +47,7 @@
     <!-- Background -->
     <div class="bg"></div>
 
+    <!-- Main Container -->
     <div class="container">
 
         <!-- Profile -->
@@ -85,107 +94,119 @@
         <div class="links">
 
             <a href="https://discord.gg/fcas66FC" target="_blank">
-                <i class="fab fa-discord"></i> Discord
+                <i class="fab fa-discord"></i>
+                Discord
             </a>
 
             <a href="https://instagram.com/ableyacine" target="_blank">
-                <i class="fab fa-instagram"></i> Instagram
+                <i class="fab fa-instagram"></i>
+                Instagram
             </a>
 
             <a href="https://tiktok.com/@ableyacine" target="_blank">
-                <i class="fab fa-tiktok"></i> TikTok
+                <i class="fab fa-tiktok"></i>
+                TikTok
             </a>
 
             <a href="https://www.youtube.com/@bro-day1" target="_blank">
-                <i class="fab fa-youtube"></i> YouTube
+                <i class="fab fa-youtube"></i>
+                YouTube
             </a>
 
             <a href="https://twitch.tv/ableyacine" target="_blank">
-                <i class="fab fa-twitch"></i> Twitch
+                <i class="fab fa-twitch"></i>
+                Twitch
             </a>
 
             <a href="https://steamcommunity.com/profiles/76561198685991670/" target="_blank">
-                <i class="fab fa-steam"></i> Steam
+                <i class="fab fa-steam"></i>
+                Steam
             </a>
 
             <a href="https://github.com/broday1" target="_blank">
-                <i class="fab fa-github"></i> GitHub
+                <i class="fab fa-github"></i>
+                GitHub
             </a>
 
             <a href="https://x.com/LeoSancocii5" target="_blank">
-                <i class="fa-brands fa-x-twitter"></i> X
+                <i class="fa-brands fa-x-twitter"></i>
+                X
             </a>
 
             <a href="https://open.spotify.com/user/31k43psyqt5pfszqlarzo5btkecm" target="_blank">
-                <i class="fab fa-spotify"></i> Spotify
+                <i class="fab fa-spotify"></i>
+                Spotify
             </a>
 
             <a href="https://wa.me/212700577389" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
             </a>
 
             <a href="https://t.me/ableyacine" target="_blank">
-                <i class="fab fa-telegram"></i> Telegram
+                <i class="fab fa-telegram"></i>
+                Telegram
             </a>
 
             <a href="https://www.facebook.com/share/19H39f75ys/?mibextid=wwXIfr" target="_blank">
-                <i class="fab fa-facebook"></i> Facebook
+                <i class="fab fa-facebook"></i>
+                Facebook
             </a>
 
         </div>
 
-    <!-- Premium Music Player -->
+        <!-- Premium Music Player -->
+        <div class="music-player">
 
-<div class="music-player">
+            <div class="music-header">
 
-    <div class="music-header">
+                <button id="playMusic">
+                    <i class="fas fa-play"></i>
+                </button>
 
-        <button id="playMusic">
-            <i class="fas fa-play"></i>
-        </button>
+                <div class="song-details">
+                    <h3>🎵 Fixette Bonus</h3>
+                    <p>BRODAY1 Playlist</p>
+                </div>
 
-        <div class="song-details">
-            <h3>🎵 Fixette Bonus</h3>
-            <p>Now Playing</p>
+            </div>
+
+            <div class="progress-wrapper">
+
+                <span id="currentTime">0:00</span>
+
+                <input
+                    type="range"
+                    id="progress"
+                    min="0"
+                    max="100"
+                    value="0">
+
+                <span id="duration">0:00</span>
+
+            </div>
+
+            <div class="volume-wrapper">
+
+                <i class="fas fa-volume-down"></i>
+
+                <input
+                    type="range"
+                    id="volume"
+                    min="0"
+                    max="100"
+                    value="40">
+
+                <i class="fas fa-volume-up"></i>
+
+            </div>
+
+            <audio id="music">
+                <source src="music.mp3" type="audio/mpeg">
+            </audio>
+
         </div>
 
-    </div>
-
-    <div class="progress-wrapper">
-
-        <span id="currentTime">0:00</span>
-
-        <input
-            type="range"
-            id="progress"
-            min="0"
-            max="100"
-            value="0">
-
-        <span id="duration">0:00</span>
-
-    </div>
-
-    <div class="volume-wrapper">
-
-        <i class="fas fa-volume-down"></i>
-
-        <input
-            type="range"
-            id="volume"
-            min="0"
-            max="100"
-            value="40">
-
-        <i class="fas fa-volume-up"></i>
-
-    </div>
-
-    <audio id="music">
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
-
-</div>
         <!-- Footer -->
         <div class="footer">
             <p>© 2026 BRODAY1</p>
@@ -194,8 +215,10 @@
 
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
+    <!-- Back To Top -->
+    <button id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
