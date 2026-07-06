@@ -1,0 +1,50 @@
+.loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#030712;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:99999;
+transition:1s;
+}
+
+.loader.hidden{
+opacity:0;
+visibility:hidden;
+}
+
+.loader h1{
+color:#33aaff;
+font-size:55px;
+text-shadow:0 0 25px #0099ff;
+letter-spacing:3px;
+}
+
+.loader span{
+margin-top:20px;
+width:220px;
+height:6px;
+background:#111;
+border-radius:20px;
+overflow:hidden;
+}
+
+.loader span::before{
+content:"";
+display:block;
+width:0%;
+height:100%;
+background:#00aaff;
+animation:load 2.5s linear forwards;
+}
+
+@keyframes load{
+to{
+width:100%;
+}
+}
