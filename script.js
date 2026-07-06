@@ -53,3 +53,25 @@ setInterval(()=>{
     }
 
 },2500);
+tsParticles.load("particles-js", {
+  particles: {
+    number: {
+      value: 80
+    },
+    color: {
+      value: "#3b82f6"
+    },
+    links: {
+      enable: true,
+      color: "#3b82f6",
+      distance: 150
+    },
+    move: {
+      enable: true,
+      speed: 2
+    },
+    size: {
+      value: 3
+    }
+  }
+});
