@@ -43,51 +43,65 @@ document.addEventListener("DOMContentLoaded", () => {
     // Profile Glow
     const profile = document.querySelector(".profile");
 
-    if(profile){
+    if (profile) {
 
-        profile.addEventListener("mouseenter",()=>{
-            profile.style.boxShadow="0 0 60px #00aaff";
+        profile.addEventListener("mouseenter", () => {
+            profile.style.boxShadow = "0 0 60px #00aaff";
         });
 
-        profile.addEventListener("mouseleave",()=>{
-            profile.style.boxShadow="0 0 30px #00aaff";
+        profile.addEventListener("mouseleave", () => {
+            profile.style.boxShadow = "0 0 30px #00aaff";
         });
 
     }
 
     // ===== Music Player =====
 
-    const music=document.getElementById("music");
-    const playBtn=document.getElementById("playMusic");
+    const music = document.getElementById("music");
+    const playBtn = document.getElementById("playMusic");
 
-    if(music && playBtn){
+    if (music && playBtn) {
 
-        music.volume=0.4;
+        music.volume = 0.4;
 
-        playBtn.addEventListener("click",()=>{
+        playBtn.addEventListener("click", () => {
 
-            if(music.paused){
+            if (music.paused) {
 
                 music.play();
-                playBtn.innerHTML='<i class="fas fa-pause"></i>';
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
                 playBtn.classList.add("playing");
 
-            }else{
+            } else {
 
                 music.pause();
-                playBtn.innerHTML='<i class="fas fa-play"></i>';
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
                 playBtn.classList.remove("playing");
 
             }
 
         });
 
-        music.addEventListener("ended",()=>{
+        music.addEventListener("ended", () => {
 
-            music.currentTime=0;
-
-            playBtn.innerHTML='<i class="fas fa-play"></i>';
+            music.currentTime = 0;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
             playBtn.classList.remove("playing");
+
+        });
+
+    }
+
+    // ===== Mouse Light =====
+
+    const mouseLight = document.querySelector(".mouse-light");
+
+    if (mouseLight) {
+
+        document.addEventListener("mousemove", (e) => {
+
+            mouseLight.style.left = e.clientX + "px";
+            mouseLight.style.top = e.clientY + "px";
 
         });
 
@@ -96,153 +110,87 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("BRODAY1 Website Loaded Successfully");
 
 });
+
 // ===== Particles Background =====
 
 tsParticles.load("particles-js", {
-  fullScreen: {
-    enable: false
-  },
 
-  background: {
-    color: "transparent"
-  },
-
-  fpsLimit: 60,
-
-  particles: {
-
-    number: {
-      value: 80,
-      density: {
-        enable: true,
-        area: 800
-      }
+    fullScreen: {
+        enable: false
     },
 
-    color: {
-      value: "#00aaff"
+    background: {
+        color: "transparent"
     },
 
-    links: {
-      enable: true,
-      color: "#00aaff",
-      distance: 150,
-      opacity: 0.3,
-      width: 1
-    },
+    fpsLimit: 60,
 
-    move: {
-      enable: true,
-      speed: 1.5
-    },
+    particles: {
 
-    size: {
-      value: {
-        min: 1,
-        max: 4
-      }
-    },
+        number: {
+            value: 80,
+            density: {
+                enable: true,
+                area: 800
+            }
+        },
 
-    opacity: {
-      value: 0.7
-    }
+        color: {
+            value: "#00aaff"
+        },
 
-  },
-
-  interactivity: {
-
-    events: {
-
-      onHover: {
-        enable: true,
-        mode: "grab"
-      },
-
-      resize: true
-
-    },
-
-    modes: {
-
-      grab: {
-        distance: 180,
         links: {
-          opacity: 0.8
-        }
-      }
-
-    }
-
-  }
-});
-// ===== Particles Background =====
-
-tsParticles.load("particles-js", {
-
-    background:{
-        color:"transparent"
-    },
-
-    particles:{
-
-        number:{
-            value:70
+            enable: true,
+            color: "#00aaff",
+            distance: 150,
+            opacity: 0.3,
+            width: 1
         },
 
-        color:{
-            value:"#00aaff"
+        move: {
+            enable: true,
+            speed: 1.5
         },
 
-        links:{
-            enable:true,
-            color:"#00aaff",
-            distance:150,
-            opacity:0.3
-        },
-
-        move:{
-            enable:true,
-            speed:1.5
-        },
-
-        size:{
-            value:2
-        },
-
-        opacity:{
-            value:0.5
-        }
-
-    },
-
-    interactivity:{
-
-        events:{
-            onHover:{
-                enable:true,
-                mode:"grab"
+        size: {
+            value: {
+                min: 1,
+                max: 4
             }
         },
 
-        modes:{
-            grab:{
-                distance:180,
-                links:{
-                    opacity:1
+        opacity: {
+            value: 0.7
+        }
+
+    },
+
+    interactivity: {
+
+        events: {
+
+            onHover: {
+                enable: true,
+                mode: "grab"
+            },
+
+            resize: true
+
+        },
+
+        modes: {
+
+            grab: {
+                distance: 180,
+
+                links: {
+                    opacity: 0.8
                 }
+
             }
+
         }
 
     }
-
-});
-// ===== Mouse Light =====
-
-const mouseLight = document.querySelector(".mouse-light");
-
-document.addEventListener("mousemove",(e)=>{
-
-    mouseLight.style.left = e.clientX + "px";
-    mouseLight.style.top  = e.clientY + "px";
 
 });
