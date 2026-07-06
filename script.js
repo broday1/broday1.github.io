@@ -65,3 +65,29 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("BRODAY1 Website Loaded Successfully");
 
 });
+const music = document.getElementById("music");
+const playBtn = document.getElementById("playMusic");
+
+let playing = false;
+
+playBtn.addEventListener("click", () => {
+
+    if(!playing){
+
+        music.play();
+
+        playBtn.innerHTML='<i class="fas fa-pause"></i>';
+
+        playing=true;
+
+    }else{
+
+        music.pause();
+
+        playBtn.innerHTML='<i class="fas fa-play"></i>';
+
+        playing=false;
+
+    }
+
+});
