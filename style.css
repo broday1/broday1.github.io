@@ -870,3 +870,31 @@ color:#cde8ff;
     left .08s linear,
     top .08s linear;
 }
+/* ===== Gaming Cursor ===== */
+
+body{
+    cursor:none;
+}
+
+.cursor{
+    position:fixed;
+    width:18px;
+    height:18px;
+    border:2px solid #00aaff;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    transition:
+        width .2s,
+        height .2s,
+        border .2s,
+        background .2s;
+    z-index:99999;
+    box-shadow:0 0 20px #00aaff;
+}
+
+.cursor.active{
+    width:35px;
+    height:35px;
+    background:rgba(0,170,255,.2);
+}
