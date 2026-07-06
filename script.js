@@ -1,77 +1,67 @@
-// Welcome
-console.log("BRODAY1 Website Loaded");
+// ===== BRODAY1 Website =====
 
-// Smooth Fade In
 document.addEventListener("DOMContentLoaded", () => {
 
+    // تأثير دخول الصفحة
     document.body.style.opacity = "0";
 
     setTimeout(() => {
-        document.body.style.transition = "1s";
+        document.body.style.transition = "1s ease";
         document.body.style.opacity = "1";
-    },100);
+    }, 100);
 
-});
+    // تغيير عنوان الصفحة
+    const titles = [
+        "BRODAY1",
+        "Gaming",
+        "Content Creator",
+        "Welcome To BRODAY1"
+    ];
 
-// Neon Hover Effect
-const buttons = document.querySelectorAll(".buttons a");
+    let i = 0;
 
-buttons.forEach(button=>{
+    setInterval(() => {
+        document.title = titles[i];
+        i = (i + 1) % titles.length;
+    }, 2500);
 
-    button.addEventListener("mouseenter",()=>{
+    // تأثير الأزرار
+    const links = document.querySelectorAll(".links a");
 
-        button.style.boxShadow="0 0 25px #00aaff";
+    links.forEach(link => {
+
+        link.addEventListener("mouseenter", () => {
+
+            link.style.transform = "translateY(-6px) scale(1.03)";
+            link.style.boxShadow = "0 0 25px #00aaff";
+
+        });
+
+        link.addEventListener("mouseleave", () => {
+
+            link.style.transform = "translateY(0)";
+            link.style.boxShadow = "none";
+
+        });
 
     });
 
-    button.addEventListener("mouseleave",()=>{
+    // تأثير الصورة
+    const profile = document.querySelector(".profile");
 
-        button.style.boxShadow="none";
+    profile.addEventListener("mousemove", () => {
+
+        profile.style.boxShadow = "0 0 60px #00aaff";
 
     });
 
-});
+    profile.addEventListener("mouseleave", () => {
 
-// Dynamic Title
-const titles=[
-    "BRODAY1",
-    "Gaming",
-    "Content Creator",
-    "Welcome"
-];
+        profile.style.boxShadow = "0 0 30px #00aaff";
 
-let i=0;
+    });
 
-setInterval(()=>{
+    // رسالة في Console
+    console.log("BRODAY1 Website Loaded Successfully");
 
-    document.title=titles[i];
-
-    i++;
-
-    if(i>=titles.length){
-        i=0;
-    }
-
-},2500);
-tsParticles.load("particles-js", {
-  particles: {
-    number: {
-      value: 80
-    },
-    color: {
-      value: "#3b82f6"
-    },
-    links: {
-      enable: true,
-      color: "#3b82f6",
-      distance: 150
-    },
-    move: {
-      enable: true,
-      speed: 2
-    },
-    size: {
-      value: 3
-    }
-  }
 });
