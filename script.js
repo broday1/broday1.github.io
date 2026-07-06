@@ -236,3 +236,13 @@ tsParticles.load("particles-js", {
     }
 
 });
+// ===== Mouse Light =====
+
+const mouseLight = document.querySelector(".mouse-light");
+
+document.addEventListener("mousemove",(e)=>{
+
+    mouseLight.style.left = e.clientX + "px";
+    mouseLight.style.top  = e.clientY + "px";
+
+});
