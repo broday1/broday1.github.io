@@ -761,3 +761,62 @@ font-size:22px;
 }
 
 }
+.music-player{
+
+margin-top:35px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:15px;
+
+padding:15px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(0,170,255,.25);
+
+border-radius:18px;
+
+}
+
+.music-player button{
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+background:#0099ff;
+
+color:white;
+
+font-size:20px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.music-player button:hover{
+
+transform:scale(1.1);
+
+box-shadow:0 0 20px #00aaff;
+
+}
+
+.music-player span{
+
+font-weight:bold;
+
+color:#cde8ff;
+
+}
