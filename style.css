@@ -848,3 +848,25 @@ color:#cde8ff;
 .bg{
     z-index:-4;
 }
+/* ===== Mouse Light ===== */
+
+.mouse-light{
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    pointer-events:none;
+
+    background:radial-gradient(circle,
+    rgba(0,170,255,.25) 0%,
+    rgba(0,170,255,.08) 40%,
+    transparent 70%);
+
+    transform:translate(-50%,-50%);
+    z-index:-1;
+
+    transition:
+    transform .08s linear,
+    left .08s linear,
+    top .08s linear;
+}
