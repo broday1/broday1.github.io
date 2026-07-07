@@ -8,8 +8,7 @@
 
     <title>BRODAY1</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -33,15 +32,17 @@
     <!-- Mouse Light -->
     <div class="mouse-light"></div>
 
-    <!-- Custom Cursor -->
+    <!-- Cursor -->
     <div class="cursor"></div>
 
     <!-- Video Background -->
     <div class="video-bg">
 
-        <video autoplay muted loop playsinline id="bgVideo">
+        <video id="bgVideo" autoplay muted loop playsinline>
 
-            <source src="background.mp4" type="video/mp4">
+            <source src="1044-142621375.mp4" type="video/mp4">
+
+            Your browser does not support HTML5 video.
 
         </video>
 
@@ -61,13 +62,9 @@
     <!-- Background Glow -->
     <div class="bg"></div>
 
-    <!-- Main -->
     <div class="container">
 
-        <!-- Profile -->
-        <img src="profile.jpg"
-             class="profile"
-             alt="BRODAY1">
+        <img src="profile.jpg" class="profile" alt="BRODAY1">
 
         <h1>BRODAY1</h1>
 
@@ -75,18 +72,15 @@
             Gaming • Content Creator • Streaming
         </span>
 
-        <!-- Status -->
         <div class="status">
             <span class="online"></span>
             Online
         </div>
 
-        <!-- Theme -->
         <button id="theme-toggle">
             🌙 Dark Mode
         </button>
 
-        <!-- Stats -->
         <div class="stats">
 
             <div class="stat">
@@ -106,72 +100,60 @@
 
         </div>
 
-        <!-- Links -->
         <div class="links">
 
             <a href="https://discord.gg/fcas66FC" target="_blank">
-                <i class="fab fa-discord"></i>
-                Discord
+                <i class="fab fa-discord"></i> Discord
             </a>
 
             <a href="https://instagram.com/ableyacine" target="_blank">
-                <i class="fab fa-instagram"></i>
-                Instagram
+                <i class="fab fa-instagram"></i> Instagram
             </a>
 
             <a href="https://tiktok.com/@ableyacine" target="_blank">
-                <i class="fab fa-tiktok"></i>
-                TikTok
+                <i class="fab fa-tiktok"></i> TikTok
             </a>
 
             <a href="https://www.youtube.com/@bro-day1" target="_blank">
-                <i class="fab fa-youtube"></i>
-                YouTube
+                <i class="fab fa-youtube"></i> YouTube
             </a>
 
             <a href="https://twitch.tv/ableyacine" target="_blank">
-                <i class="fab fa-twitch"></i>
-                Twitch
+                <i class="fab fa-twitch"></i> Twitch
             </a>
 
             <a href="https://steamcommunity.com/profiles/76561198685991670/" target="_blank">
-                <i class="fab fa-steam"></i>
-                Steam
+                <i class="fab fa-steam"></i> Steam
             </a>
 
             <a href="https://github.com/broday1" target="_blank">
-                <i class="fab fa-github"></i>
-                GitHub
+                <i class="fab fa-github"></i> GitHub
             </a>
 
             <a href="https://x.com/LeoSancocii5" target="_blank">
-                <i class="fa-brands fa-x-twitter"></i>
-                X
+                <i class="fa-brands fa-x-twitter"></i> X
             </a>
 
             <a href="https://open.spotify.com/user/31k43psyqt5pfszqlarzo5btkecm" target="_blank">
-                <i class="fab fa-spotify"></i>
-                Spotify
+                <i class="fab fa-spotify"></i> Spotify
             </a>
 
             <a href="https://wa.me/212700577389" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                WhatsApp
+                <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
 
             <a href="https://t.me/ableyacine" target="_blank">
-                <i class="fab fa-telegram"></i>
-                Telegram
+                <i class="fab fa-telegram"></i> Telegram
             </a>
 
             <a href="https://www.facebook.com/share/19H39f75ys/?mibextid=wwXIfr" target="_blank">
-                <i class="fab fa-facebook"></i>
-                Facebook
+                <i class="fab fa-facebook"></i> Facebook
             </a>
 
         </div>
 
-        <!-- Premium Music Player -->
+        <!-- Music Player -->
+
         <div class="music-player">
 
             <div class="music-header">
@@ -194,9 +176,8 @@
                 <input
                     type="range"
                     id="progress"
-                    min="0"
-                    max="100"
-                    value="0">
+                    value="0"
+                    min="0">
 
                 <span id="duration">0:00</span>
 
@@ -209,9 +190,9 @@
                 <input
                     type="range"
                     id="volume"
+                    value="40"
                     min="0"
-                    max="100"
-                    value="40">
+                    max="100">
 
                 <i class="fas fa-volume-up"></i>
 
@@ -225,7 +206,6 @@
 
         </div>
 
-        <!-- Footer -->
         <div class="footer">
             <p>© 2026 BRODAY1</p>
             <p>Made with ❤️ by BRODAY1</p>
@@ -233,12 +213,10 @@
 
     </div>
 
-    <!-- Back To Top -->
     <button id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
     <script src="loading.js"></script>
 
