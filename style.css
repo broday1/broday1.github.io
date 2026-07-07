@@ -16,11 +16,11 @@ html{
     scroll-behavior:smooth;
 }
 
-body{
-    background:#050816;
-    color:#fff;
-    overflow-x:hidden;
-    cursor:none;
+body {
+    background: #4a0007; /* a7mar ghameq elegant */
+    color: #fff;
+    overflow-x: hidden;
+    cursor: none;
 }
 
 /* ==========================================
