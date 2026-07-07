@@ -1,988 +1,580 @@
+/* ==========================================
+   BRODAY1 V6.3 Premium
+   PART 1 - Base & Layout
+========================================== */
+
+/* Reset */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#050816;
-color:#fff;
-overflow-x:hidden;
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+    cursor:none;
 }
+
+/* ==========================================
+   Video Background
+========================================== */
+
+.video-bg{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-10;
+}
+
+#bgVideo{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:translate(-50%,-50%);
+}
+
+.video-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+/* ==========================================
+   Particles
+========================================== */
+
+#particles-js{
+    position:fixed;
+    inset:0;
+    z-index:-8;
+    pointer-events:none;
+}
+
+/* ==========================================
+   Background Glow
+========================================== */
 
 .bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at top,#1e90ff55,transparent 60%),
-linear-gradient(180deg,#050816,#02040a);
-z-index:-2;
-}
-
-.container{
-width:90%;
-max-width:700px;
-margin:60px auto;
-padding:35px;
-border-radius:25px;
-background:rgba(20,25,45,.75);
-backdrop-filter:blur(20px);
-border:1px solid rgba(0,153,255,.35);
-box-shadow:0 0 40px rgba(0,140,255,.25);
-text-align:center;
-animation:fade 1s ease;
-}
-
-.profile{
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-border:4px solid #00aaff;
-box-shadow:0 0 30px #00aaff;
-margin-bottom:20px;
-transition:.4s;
-}
-
-.profile:hover{
-transform:scale(1.05) rotate(2deg);
-box-shadow:0 0 45px #00aaff;
-}
-
-h1{
-font-size:48px;
-color:#55b8ff;
-text-shadow:0 0 15px #0099ff;
-}
-
-.subtitle{
-display:block;
-margin:12px 0 30px;
-color:#c8d7ff;
-font-size:18px;
-}
-
-.links{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
-
-.links a{
-padding:15px;
-border-radius:14px;
-text-decoration:none;
-background:#111b33;
-border:1px solid #008cff;
-color:#fff;
-font-weight:600;
-transition:.3s;
-}
-
-.links a:hover{
-background:#008cff;
-transform:translateY(-5px);
-box-shadow:0 0 20px #0099ff;
-}
-
-.links i{
-margin-right:8px;
-}
-
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@media(max-width:700px){
-
-.links{
-grid-template-columns:1fr;
-}
-
-.profile{
-width:150px;
-height:150px;
-}
-
-h1{
-font-size:38px;
-}
-
-.subtitle{
-font-size:16px;
-}
-
-.container{
-padding:25px;
-}
-
-}
-/* ===========================================
-   BRODAY1 V3 - PART 1
-   Cyber Gaming Design
-=========================================== */
-
-/* Glass Effect */
-.container{
-    background:rgba(15,20,40,.72);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(0,170,255,.35);
-    box-shadow:
-    0 0 30px rgba(0,170,255,.35),
-    inset 0 0 20px rgba(255,255,255,.05);
-    transition:.4s;
-}
-
-.container:hover{
-    box-shadow:
-    0 0 50px rgba(0,170,255,.6),
-    0 0 100px rgba(0,170,255,.2);
-}
-
-/* Profile */
-.profile{
-    transition:.4s;
-}
-
-.profile:hover{
-    transform:scale(1.08);
-    box-shadow:
-    0 0 25px #00aaff,
-    0 0 60px #008cff;
-}
-
-/* Title */
-h1{
-    letter-spacing:3px;
-    text-transform:uppercase;
-}
-
-.subtitle{
-    opacity:.85;
-}
-
-/* Online Status */
-.status{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin:18px auto;
-    padding:8px 18px;
-    border-radius:50px;
-    background:rgba(0,170,255,.12);
-    border:1px solid rgba(0,170,255,.35);
-}
-
-.online{
-    width:12px;
-    height:12px;
-    background:#00ff66;
-    border-radius:50%;
-    box-shadow:0 0 15px #00ff66;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-
-0%{
-transform:scale(1);
-opacity:1;
-}
-
-50%{
-transform:scale(1.4);
-opacity:.6;
-}
-
-100%{
-transform:scale(1);
-opacity:1;
-}
-
-}
-
-/* Stats */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin:30px 0;
-}
-
-.stat{
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(0,170,255,.25);
-
-border-radius:18px;
-
-padding:18px;
-
-transition:.35s;
-
-}
-
-.stat:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 0 25px rgba(0,170,255,.45);
-
-}
-
-.stat h2{
-
-color:#33bbff;
-
-font-size:28px;
-
-margin-bottom:6px;
-
-}
-
-.stat p{
-
-font-size:14px;
-
-opacity:.75;
-
-}
-
-/* Theme Button */
-
-#theme-toggle{
-
-margin-bottom:25px;
-
-padding:14px 28px;
-
-border:none;
-
-border-radius:14px;
-
-background:linear-gradient(90deg,#009dff,#00d4ff);
-
-color:white;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.35s;
-
-}
-
-#theme-toggle:hover{
-
-transform:scale(1.05);
-
-box-shadow:0 0 25px #00aaff;
-
-}
-/* ===========================================
-   BRODAY1 V3 - PART 2
-   Premium Buttons & Effects
-=========================================== */
-
-/* Social Links */
-
-.links{
-    margin-top:30px;
-}
-
-.links a{
-    position:relative;
+    position:fixed;
+    inset:0;
+    z-index:-7;
     overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    height:58px;
-    font-size:17px;
-    border-radius:18px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(0,170,255,.25);
-    transition:.35s;
 }
-
-/* Neon Animation */
-
-.links a::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:-120%;
-
-width:100%;
-
-height:100%;
-
-background:linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.35),
-transparent
-);
-
-transition:.6s;
-
-}
-
-.links a:hover::before{
-
-left:120%;
-
-}
-
-.links a:hover{
-
-transform:translateY(-8px) scale(1.03);
-
-background:linear-gradient(135deg,#008cff,#00d4ff);
-
-box-shadow:
-
-0 0 20px #00aaff,
-
-0 0 40px rgba(0,170,255,.45);
-
-}
-
-.links i{
-
-font-size:22px;
-
-transition:.3s;
-
-}
-
-.links a:hover i{
-
-transform:rotate(10deg) scale(1.2);
-
-}
-
-/* Footer */
-
-.footer{
-
-margin-top:40px;
-
-padding-top:25px;
-
-border-top:1px solid rgba(255,255,255,.08);
-
-opacity:.75;
-
-font-size:14px;
-
-}
-
-.footer p{
-
-margin:6px 0;
-
-}
-
-/* Scrollbar */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#050816;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#0099ff;
-
-border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#33bbff;
-
-}
-
-/* Background Glow */
 
 .bg::before{
-
-content:"";
-
-position:absolute;
-
-top:-200px;
-
-left:-200px;
-
-width:500px;
-
-height:500px;
-
-background:#008cff;
-
-filter:blur(180px);
-
-opacity:.25;
-
-animation:moveGlow 10s infinite alternate;
-
+    content:"";
+    position:absolute;
+    top:-250px;
+    left:-250px;
+    width:550px;
+    height:550px;
+    background:#008cff;
+    filter:blur(180px);
+    opacity:.25;
+    animation:moveGlow 10s infinite alternate;
 }
 
 .bg::after{
-
-content:"";
-
-position:absolute;
-
-bottom:-200px;
-
-right:-200px;
-
-width:500px;
-
-height:500px;
-
-background:#00d4ff;
-
-filter:blur(180px);
-
-opacity:.20;
-
-animation:moveGlow2 12s infinite alternate;
-
+    content:"";
+    position:absolute;
+    right:-250px;
+    bottom:-250px;
+    width:550px;
+    height:550px;
+    background:#00d4ff;
+    filter:blur(180px);
+    opacity:.20;
+    animation:moveGlow2 12s infinite alternate;
 }
 
 @keyframes moveGlow{
 
-0%{
+    from{
+        transform:translate(0,0);
+    }
 
-transform:translate(0,0);
-
-}
-
-100%{
-
-transform:translate(120px,60px);
-
-}
+    to{
+        transform:translate(120px,80px);
+    }
 
 }
 
 @keyframes moveGlow2{
 
-0%{
+    from{
+        transform:translate(0,0);
+    }
 
-transform:translate(0,0);
-
-}
-
-100%{
-
-transform:translate(-100px,-80px);
+    to{
+        transform:translate(-120px,-80px);
+    }
 
 }
 
-}
-
-/* Mobile */
-
-@media(max-width:768px){
-
-.stats{
-
-grid-template-columns:1fr;
-
-}
-
-.links{
-
-grid-template-columns:1fr;
-
-}
+/* ==========================================
+   Main Container
+========================================== */
 
 .container{
+    position:relative;
+    z-index:20;
 
-padding:22px;
+    width:90%;
+    max-width:760px;
 
-}
+    margin:60px auto;
 
-.profile{
+    padding:35px;
 
-width:150px;
+    border-radius:25px;
 
-height:150px;
+    background:rgba(20,25,45,.72);
 
-}
+    backdrop-filter:blur(20px);
 
-h1{
+    border:1px solid rgba(0,170,255,.35);
 
-font-size:34px;
+    box-shadow:
+        0 0 35px rgba(0,170,255,.25),
+        inset 0 0 20px rgba(255,255,255,.05);
 
-}
+    text-align:center;
 
-}
-/* ===========================================
-   BRODAY1 V3 - PART 3
-   Final Premium Effects
-=========================================== */
-
-/* Fade Animation */
-
-.container{
     animation:fadeUp 1s ease;
 }
 
-@keyframes fadeUp{
-
-0%{
-opacity:0;
-transform:translateY(40px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* Floating Profile */
-
-.profile{
-
-animation:floating 4s ease-in-out infinite;
-
-}
-
-@keyframes floating{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* Animated Title */
-
-h1{
-
-animation:glowTitle 2s infinite alternate;
-
-}
-
-@keyframes glowTitle{
-
-from{
-
-text-shadow:
-0 0 10px #0099ff,
-0 0 20px #0099ff;
-
-}
-
-to{
-
-text-shadow:
-0 0 20px #00d4ff,
-0 0 40px #00d4ff;
-
-}
-
-}
-
-/* Button Click */
-
-.links a:active{
-
-transform:scale(.96);
-
-}
-
-/* Glass Shine */
-
 .container::before{
 
-content:"";
+    content:"";
 
-position:absolute;
+    position:absolute;
 
-top:0;
+    top:0;
+    left:-120%;
 
-left:-100%;
+    width:60%;
+    height:100%;
 
-width:60%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+    );
 
-height:100%;
+    transform:skewX(-20deg);
 
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,.18),
-transparent
-);
+    animation:shine 8s infinite;
 
-transform:skewX(-20deg);
-
-animation:shine 8s infinite;
-
-pointer-events:none;
+    pointer-events:none;
 
 }
 
 @keyframes shine{
 
-0%{
+    from{
+        left:-120%;
+    }
 
-left:-120%;
-
-}
-
-100%{
-
-left:170%;
+    to{
+        left:180%;
+    }
 
 }
 
-}
+@keyframes fadeUp{
 
-/* Better Footer */
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
 
-.footer{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 
-text-align:center;
+}/* ==========================================
+   BRODAY1 V6.3 Premium
+   PART 2 - Profile & Social
+========================================== */
 
-color:#9ecfff;
-
-}
-
-.footer p:first-child{
-
-font-weight:bold;
-
-font-size:15px;
-
-}
-
-.footer p:last-child{
-
-opacity:.7;
-
-}
-
-/* Selection */
-
-::selection{
-
-background:#00aaff;
-
-color:white;
-
-}
-
-/* Smooth */
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-/* Responsive */
-
-@media(max-width:500px){
+/* ==========================
+   Profile
+========================== */
 
 .profile{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #00aaff;
+    box-shadow:
+        0 0 25px #00aaff,
+        0 0 60px rgba(0,170,255,.4);
+    margin-bottom:20px;
+    transition:.4s;
+    animation:floating 4s ease-in-out infinite;
+}
 
-width:130px;
+.profile:hover{
+    transform:scale(1.08) rotate(2deg);
+    box-shadow:
+        0 0 35px #00d4ff,
+        0 0 80px #00aaff;
+}
 
-height:130px;
+@keyframes floating{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
 
 }
+
+/* ==========================
+   Title
+========================== */
 
 h1{
 
-font-size:30px;
+    font-size:48px;
+
+    color:#55b8ff;
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    text-shadow:
+        0 0 15px #0099ff,
+        0 0 30px #00d4ff;
+
+    animation:titleGlow 2s infinite alternate;
+
+}
+
+@keyframes titleGlow{
+
+    from{
+
+        text-shadow:
+            0 0 15px #0099ff,
+            0 0 25px #0099ff;
+
+    }
+
+    to{
+
+        text-shadow:
+            0 0 25px #00d4ff,
+            0 0 45px #00d4ff;
+
+    }
 
 }
 
 .subtitle{
 
-font-size:15px;
+    display:block;
+
+    margin:12px 0 30px;
+
+    color:#cfe6ff;
+
+    font-size:18px;
+
+    opacity:.9;
 
 }
 
-.links a{
+/* ==========================
+   Online Status
+========================== */
 
-height:52px;
+.status{
 
-font-size:15px;
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    margin-bottom:30px;
+
+    background:rgba(0,170,255,.12);
+
+    border:1px solid rgba(0,170,255,.35);
+
+}
+
+.online{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#00ff6a;
+
+    box-shadow:0 0 15px #00ff6a;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(1.4);
+        opacity:.6;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+/* ==========================
+   Theme Button
+========================== */
+
+#theme-toggle{
+
+    margin-bottom:30px;
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:linear-gradient(135deg,#0099ff,#00d4ff);
+
+    color:#fff;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#theme-toggle:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 0 25px #00aaff;
+
+}
+
+/* ==========================
+   Stats
+========================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    margin:35px 0;
+
+}
+
+.stat{
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(0,170,255,.25);
+
+    transition:.35s;
+
+}
+
+.stat:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 25px rgba(0,170,255,.45);
 
 }
 
 .stat h2{
 
-font-size:22px;
+    color:#33bbff;
+
+    font-size:28px;
+
+    margin-bottom:6px;
 
 }
 
-}
-.music-player{
+.stat p{
 
-margin-top:35px;
+    color:#cfe6ff;
 
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:15px;
-
-padding:15px;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(0,170,255,.25);
-
-border-radius:18px;
+    font-size:14px;
 
 }
 
-.music-player button{
+/* ==========================
+   Social Links
+========================== */
 
-width:55px;
+.links{
 
-height:55px;
+    display:grid;
 
-border:none;
+    grid-template-columns:repeat(2,1fr);
 
-border-radius:50%;
+    gap:16px;
 
-background:#0099ff;
-
-color:white;
-
-font-size:20px;
-
-cursor:pointer;
-
-transition:.3s;
+    margin-top:30px;
 
 }
 
-.music-player button:hover{
+.links a{
 
-transform:scale(1.1);
+    position:relative;
 
-box-shadow:0 0 20px #00aaff;
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    height:60px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(0,170,255,.25);
+
+    transition:.35s;
 
 }
 
-.music-player span{
+.links a::before{
 
-font-weight:bold;
+    content:"";
 
-color:#cde8ff;
+    position:absolute;
 
-}
-#particles-js{
-    position:fixed;
     top:0;
-    left:0;
+
+    left:-120%;
+
     width:100%;
+
     height:100%;
-    z-index:-3;
-    pointer-events:none;
-}
-/* ======================================
-   V6.3 Premium Video Background
-====================================== */
 
-.video-bg{
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -10;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transition:.6s;
+
 }
 
-#bgVideo{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
+.links a:hover::before{
+
+    left:120%;
+
 }
 
-.video-overlay{
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.45);
+.links a:hover{
+
+    transform:translateY(-7px) scale(1.03);
+
+    background:linear-gradient(135deg,#008cff,#00d4ff);
+
+    box-shadow:
+        0 0 20px #00aaff,
+        0 0 40px rgba(0,170,255,.45);
+
 }
 
-/* ======================================
-   Particles
-====================================== */
+.links a:active{
 
-#particles-js{
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -8;
-    pointer-events: none;
+    transform:scale(.96);
+
 }
 
-.bg{
-    position: fixed;
-    inset: 0;
-    z-index: -7;
+.links i{
+
+    font-size:22px;
+
+    transition:.3s;
+
 }
 
-.container{
-    position: relative;
-    z-index: 20;
-}
+.links a:hover i{
 
-/* ======================================
-   Mouse Light
-====================================== */
+    transform:rotate(10deg) scale(1.2);
 
-.mouse-light{
-    position: fixed;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    pointer-events: none;
-    background: radial-gradient(circle,
-        rgba(0,170,255,.25) 0%,
-        rgba(0,170,255,.08) 40%,
-        transparent 70%);
-    transform: translate(-50%,-50%);
-    z-index: 15;
-    transition:
-        transform .08s linear,
-        left .08s linear,
-        top .08s linear;
-}
+}/* ==========================================
+   BRODAY1 V6.3 Premium
+   PART 3 - Music Player & Effects
+========================================== */
 
-/* ======================================
-   Gaming Cursor
-====================================== */
-
-body{
-    cursor: none;
-}
-
-.cursor{
-    position: fixed;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #00aaff;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%,-50%);
-    transition: .2s;
-    z-index: 99999;
-    box-shadow: 0 0 20px #00aaff;
-}
-
-.cursor.active{
-    width: 35px;
-    height: 35px;
-    background: rgba(0,170,255,.2);
-}
-/* ===== Mouse Light ===== */
-
-.mouse-light{
-    position:fixed;
-    width:350px;
-    height:350px;
-    border-radius:50%;
-    pointer-events:none;
-
-    background:radial-gradient(circle,
-    rgba(0,170,255,.25) 0%,
-    rgba(0,170,255,.08) 40%,
-    transparent 70%);
-
-    transform:translate(-50%,-50%);
-    z-index:-1;
-
-    transition:
-    transform .08s linear,
-    left .08s linear,
-    top .08s linear;
-}
-/* ===== Gaming Cursor ===== */
-
-body{
-    cursor:none;
-}
-
-.cursor{
-    position:fixed;
-    width:18px;
-    height:18px;
-    border:2px solid #00aaff;
-    border-radius:50%;
-    pointer-events:none;
-    transform:translate(-50%,-50%);
-    transition:
-        width .2s,
-        height .2s,
-        border .2s,
-        background .2s;
-    z-index:99999;
-    box-shadow:0 0 20px #00aaff;
-}
-
-.cursor.active{
-    width:35px;
-    height:35px;
-    background:rgba(0,170,255,.2);
-}
-/* ======================================
-   BRODAY1 V6 - Premium Music Player
-====================================== */
+/* ==========================
+   Music Player
+========================== */
 
 .music-player{
     margin-top:35px;
@@ -1007,7 +599,7 @@ body{
     border:none;
     border-radius:50%;
     background:linear-gradient(135deg,#0099ff,#00d4ff);
-    color:white;
+    color:#fff;
     cursor:pointer;
     font-size:22px;
     transition:.3s;
@@ -1025,11 +617,11 @@ body{
 
 .song-details h3{
     font-size:18px;
-    color:#ffffff;
+    color:#fff;
 }
 
 .song-details p{
-    color:#8fbfff;
+    color:#9fd8ff;
     font-size:13px;
     margin-top:4px;
 }
@@ -1038,7 +630,7 @@ body{
     display:flex;
     align-items:center;
     gap:12px;
-    margin:15px 0;
+    margin:18px 0;
 }
 
 .progress-wrapper span{
@@ -1047,16 +639,18 @@ body{
     color:#9fd8ff;
 }
 
-#progress{
+#progress,
+#volume{
     flex:1;
     appearance:none;
     height:6px;
-    border-radius:20px;
+    border-radius:30px;
     background:#1b2745;
     cursor:pointer;
 }
 
-#progress::-webkit-slider-thumb{
+#progress::-webkit-slider-thumb,
+#volume::-webkit-slider-thumb{
     appearance:none;
     width:16px;
     height:16px;
@@ -1069,7 +663,6 @@ body{
     display:flex;
     align-items:center;
     gap:12px;
-    margin-top:10px;
 }
 
 .volume-wrapper i{
@@ -1077,27 +670,74 @@ body{
     font-size:18px;
 }
 
-#volume{
-    flex:1;
-    appearance:none;
-    height:6px;
-    border-radius:20px;
-    background:#1b2745;
+/* ==========================
+   Footer
+========================== */
+
+.footer{
+    margin-top:40px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    color:#9ecfff;
 }
 
-#volume::-webkit-slider-thumb{
-    appearance:none;
-    width:16px;
-    height:16px;
+.footer p{
+    margin:6px 0;
+    font-size:14px;
+}
+
+/* ==========================
+   Mouse Light
+========================== */
+
+.mouse-light{
+    position:fixed;
+    width:350px;
+    height:350px;
     border-radius:50%;
-    background:#00d4ff;
-    box-shadow:0 0 10px #00d4ff;
-    cursor:pointer;
+    pointer-events:none;
+    background:radial-gradient(circle,
+        rgba(0,170,255,.22) 0%,
+        rgba(0,170,255,.08) 40%,
+        transparent 70%);
+    transform:translate(-50%,-50%);
+    z-index:15;
+    transition:
+        left .08s linear,
+        top .08s linear;
 }
 
-/* ======================================
-   Back To Top Button
-====================================== */
+/* ==========================
+   Gaming Cursor
+========================== */
+
+body{
+    cursor:none;
+}
+
+.cursor{
+    position:fixed;
+    width:18px;
+    height:18px;
+    border:2px solid #00aaff;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    transition:.2s;
+    z-index:99999;
+    box-shadow:0 0 20px #00aaff;
+}
+
+.cursor.active{
+    width:35px;
+    height:35px;
+    background:rgba(0,170,255,.2);
+}
+
+/* ==========================
+   Back To Top
+========================== */
 
 #backToTop{
     position:fixed;
@@ -1108,11 +748,11 @@ body{
     border:none;
     border-radius:50%;
     background:linear-gradient(135deg,#0099ff,#00d4ff);
-    color:white;
+    color:#fff;
     font-size:20px;
     cursor:pointer;
     display:none;
-    z-index:9999;
+    z-index:999;
     transition:.3s;
 }
 
@@ -1121,11 +761,49 @@ body{
     box-shadow:0 0 25px #00aaff;
 }
 
-/* ======================================
-   Mobile
-====================================== */
+/* ==========================
+   Scrollbar
+========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050816;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#0099ff;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#33bbff;
+}
+
+/* ==========================
+   Selection
+========================== */
+
+::selection{
+    background:#00aaff;
+    color:#fff;
+}
+
+/* ==========================
+   Responsive
+========================== */
 
 @media(max-width:768px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .links{
+        grid-template-columns:1fr;
+    }
 
     .music-header{
         flex-direction:column;
@@ -1136,8 +814,21 @@ body{
         text-align:center;
     }
 
-    .progress-wrapper{
-        gap:8px;
+    .container{
+        padding:22px;
+    }
+
+    .profile{
+        width:150px;
+        height:150px;
+    }
+
+    h1{
+        font-size:34px;
+    }
+
+    .subtitle{
+        font-size:15px;
     }
 
     .progress-wrapper span{
@@ -1150,6 +841,28 @@ body{
         height:50px;
         right:18px;
         bottom:18px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .profile{
+        width:130px;
+        height:130px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    .subtitle{
+        font-size:14px;
+    }
+
+    .links a{
+        height:55px;
+        font-size:15px;
     }
 
 }
