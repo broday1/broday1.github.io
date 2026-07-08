@@ -1,410 +1,420 @@
-// ======================================
-// BRODAY1 V7 Ultimate
+// ======================================================
+// BRODAY1 V8 Infinity
 // Part 1
-// ======================================
+// Loader + Fade + Dynamic Title + Cursor
+// ======================================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ==========================
+    console.log("BRODAY1 V8 Infinity Loaded");
+
+    /* =====================================
        Fade In
-    ========================== */
+    ===================================== */
 
     document.body.style.opacity = "0";
 
     setTimeout(() => {
-        document.body.style.transition = "opacity .8s ease";
-        document.body.style.opacity = "1";
-    }, 100);
 
-    /* ==========================
-       Dynamic Title
-    ========================== */
+        document.body.style.transition = "opacity 1s ease";
+
+        document.body.style.opacity = "1";
+
+    },100);
+
+    /* =====================================
+       Dynamic Browser Title
+    ===================================== */
 
     const titles = [
+
         "BRODAY1",
+
         "Gaming",
+
         "Streamer",
+
         "Content Creator",
+
         "Welcome To BRODAY1"
+
     ];
 
-    let title = 0;
+    let titleIndex = 0;
 
-    setInterval(() => {
+    setInterval(()=>{
 
-        document.title = titles[title];
+        document.title = titles[titleIndex];
 
-        title++;
+        titleIndex++;
 
-        if (title >= titles.length) {
+        if(titleIndex >= titles.length){
 
-            title = 0;
+            titleIndex = 0;
 
         }
 
-    }, 2500);
+    },2500);
 
-    /* ==========================
-       Cursor
-    ========================== */
-
-    const cursor = document.querySelector(".cursor");
-
-    document.addEventListener("mousemove", e => {
-
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-
-    });
-
-    document.addEventListener("mousedown", () => {
-
-        cursor.classList.add("active");
-
-    });
-
-    document.addEventListener("mouseup", () => {
-
-        cursor.classList.remove("active");
-
-    });
-
-    /* ==========================
-       Mouse Light
-    ========================== */
-
-    const mouseLight = document.querySelector(".mouse-light");
-
-    document.addEventListener("mousemove", e => {
-
-        mouseLight.style.left = e.clientX + "px";
-        mouseLight.style.top = e.clientY + "px";
-
-    });
-
-    /* ==========================
+    /* =====================================
        Profile Hover
-    ========================== */
+    ===================================== */
 
     const profile = document.querySelector(".profile");
 
-    profile.addEventListener("mouseenter", () => {
+    if(profile){
 
-        profile.style.transform = "scale(1.08)";
-        profile.style.boxShadow =
-            "0 0 40px #00aaff,0 0 90px #00aaff";
+        profile.addEventListener("mouseenter",()=>{
+
+            profile.style.transform="scale(1.06) rotate(2deg)";
+
+            profile.style.boxShadow="0 0 70px #00d4ff";
+
+        });
+
+        profile.addEventListener("mouseleave",()=>{
+
+            profile.style.transform="";
+
+            profile.style.boxShadow="";
+
+        });
+
+    }
+
+    /* =====================================
+       Mouse Light
+    ===================================== */
+
+    const light = document.querySelector(".mouse-light");
+
+    document.addEventListener("mousemove",(e)=>{
+
+        if(light){
+
+            light.style.left = e.clientX + "px";
+
+            light.style.top = e.clientY + "px";
+
+        }
 
     });
 
-    profile.addEventListener("mouseleave", () => {
+    /* =====================================
+       Gaming Cursor
+    ===================================== */
 
-        profile.style.transform = "";
-        profile.style.boxShadow = "";
+    const cursor = document.querySelector(".cursor");
 
-    });
+    if(cursor){
 
-    /* ==========================
+        document.addEventListener("mousemove",(e)=>{
+
+            cursor.style.left = e.clientX + "px";
+
+            cursor.style.top = e.clientY + "px";
+
+        });
+
+        document.addEventListener("mousedown",()=>{
+
+            cursor.classList.add("active");
+
+        });
+
+        document.addEventListener("mouseup",()=>{
+
+            cursor.classList.remove("active");
+
+        });
+
+    }
+
+    /* =====================================
        Hero Buttons Animation
-    ========================== */
+    ===================================== */
 
-    document.querySelectorAll(".hero-btn").forEach(btn => {
+    document.querySelectorAll(".hero-btn").forEach(btn=>{
 
-        btn.addEventListener("mouseenter", () => {
+        btn.addEventListener("mouseenter",()=>{
 
-            btn.style.transform = "translateY(-6px) scale(1.05)";
-
-        });
-
-        btn.addEventListener("mouseleave", () => {
-
-            btn.style.transform = "";
+            btn.style.transform="translateY(-8px) scale(1.05)";
 
         });
 
-    });
+        btn.addEventListener("mouseleave",()=>{
 
-});/* ======================================
-   Music Player
-====================================== */
+            btn.style.transform="";
 
-const music = document.getElementById("music");
-const playBtn = document.getElementById("playMusic");
-
-const progress = document.getElementById("progress");
-const volume = document.getElementById("volume");
-
-const currentTime = document.getElementById("currentTime");
-const duration = document.getElementById("duration");
-
-if (music) {
-
-    music.volume = 0.4;
-
-}
-
-function formatTime(time){
-
-    if(isNaN(time)) return "0:00";
-
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-
-}
-
-/* ==========================
-   Play / Pause
-========================== */
-
-if(playBtn){
-
-    playBtn.addEventListener("click",()=>{
-
-        if(music.paused){
-
-            music.play();
-
-            playBtn.innerHTML =
-            '<i class="fas fa-pause"></i>';
-
-        }
-
-        else{
-
-            music.pause();
-
-            playBtn.innerHTML =
-            '<i class="fas fa-play"></i>';
-
-        }
+        });
 
     });
 
-}
+    /* =====================================
+       Social Links Animation
+    ===================================== */
 
-/* ==========================
-   Duration
-========================== */
+    document.querySelectorAll(".links a").forEach(link=>{
 
-music.addEventListener("loadedmetadata",()=>{
+        link.addEventListener("mouseenter",()=>{
 
-    progress.max = Math.floor(music.duration);
+            link.style.transform="translateY(-8px)";
 
-    duration.textContent =
-    formatTime(music.duration);
+            link.style.boxShadow="0 0 35px rgba(0,170,255,.45)";
 
-});
+        });
 
-/* ==========================
-   Update Progress
-========================== */
+        link.addEventListener("mouseleave",()=>{
 
-music.addEventListener("timeupdate",()=>{
+            link.style.transform="";
 
-    progress.value = Math.floor(music.currentTime);
+            link.style.boxShadow="";
 
-    currentTime.textContent =
-    formatTime(music.currentTime);
+        });
 
-});
+    });
 
-/* ==========================
-   Seek
-========================== */
+});// ======================================================
+// BRODAY1 V8 Infinity
+// Part 2
+// Music + Theme + Back To Top + Counter
+// ======================================================
 
-progress.addEventListener("input",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-    music.currentTime = progress.value;
+    /* =====================================
+       Theme Toggle
+    ===================================== */
 
-});
+    const themeBtn = document.getElementById("theme-toggle");
 
-/* ==========================
-   Volume
-========================== */
+    if(themeBtn){
 
-volume.addEventListener("input",()=>{
+        themeBtn.addEventListener("click",()=>{
 
-    music.volume = volume.value / 100;
+            document.body.classList.toggle("light-mode");
 
-});
+            if(document.body.classList.contains("light-mode")){
 
-/* ==========================
-   Song End
-========================== */
+                themeBtn.innerHTML="☀️ Light Mode";
 
-music.addEventListener("ended",()=>{
+            }else{
 
-    playBtn.innerHTML =
-    '<i class="fas fa-play"></i>';
+                themeBtn.innerHTML="🌙 Dark Mode";
 
-    progress.value = 0;
+            }
 
-});
-
-/* ==========================
-   Keyboard Shortcuts
-========================== */
-
-document.addEventListener("keydown",(e)=>{
-
-    // Space
-
-    if(e.code==="Space"){
-
-        e.preventDefault();
-
-        playBtn.click();
+        });
 
     }
 
-    // Arrow Right
+    /* =====================================
+       Music Player
+    ===================================== */
 
-    if(e.code==="ArrowRight"){
+    const music=document.getElementById("music");
 
-        music.currentTime += 5;
+    const playBtn=document.getElementById("playMusic");
 
-    }
+    const progress=document.getElementById("progress");
 
-    // Arrow Left
+    const volume=document.getElementById("volume");
 
-    if(e.code==="ArrowLeft"){
+    const current=document.getElementById("currentTime");
 
-        music.currentTime -= 5;
+    const duration=document.getElementById("duration");
 
-    }
+    if(music){
 
-    // Arrow Up
-
-    if(e.code==="ArrowUp"){
-
-        music.volume =
-        Math.min(1,music.volume+0.05);
-
-        volume.value = music.volume*100;
+        music.volume=0.4;
 
     }
 
-    // Arrow Down
+    function formatTime(time){
 
-    if(e.code==="ArrowDown"){
+        const min=Math.floor(time/60);
 
-        music.volume =
-        Math.max(0,music.volume-0.05);
+        const sec=Math.floor(time%60);
 
-        volume.value = music.volume*100;
+        return `${min}:${sec<10?"0":""}${sec}`;
 
     }
 
-});
+    if(playBtn){
 
-console.log("🎵 Music Player Ready");/* ======================================
-   Theme Toggle
-====================================== */
+        playBtn.addEventListener("click",()=>{
 
-const themeBtn = document.getElementById("theme-toggle");
+            if(music.paused){
 
-if(themeBtn){
+                music.play();
 
-    themeBtn.addEventListener("click",()=>{
+                playBtn.innerHTML='<i class="fas fa-pause"></i>';
 
-        document.body.classList.toggle("light-mode");
+            }else{
 
-        if(document.body.classList.contains("light-mode")){
+                music.pause();
 
-            themeBtn.innerHTML="☀️ Light Mode";
+                playBtn.innerHTML='<i class="fas fa-play"></i>';
 
-        }
+            }
 
-        else{
+        });
 
-            themeBtn.innerHTML="🌙 Dark Mode";
+    }
+
+    if(music){
+
+        music.addEventListener("loadedmetadata",()=>{
+
+            progress.max=Math.floor(music.duration);
+
+            duration.textContent=formatTime(music.duration);
+
+        });
+
+        music.addEventListener("timeupdate",()=>{
+
+            progress.value=music.currentTime;
+
+            current.textContent=formatTime(music.currentTime);
+
+        });
+
+        music.addEventListener("ended",()=>{
+
+            playBtn.innerHTML='<i class="fas fa-play"></i>';
+
+            progress.value=0;
+
+        });
+
+    }
+
+    if(progress){
+
+        progress.addEventListener("input",()=>{
+
+            music.currentTime=progress.value;
+
+        });
+
+    }
+
+    if(volume){
+
+        volume.addEventListener("input",()=>{
+
+            music.volume=volume.value/100;
+
+        });
+
+    }
+
+    /* =====================================
+       Back To Top
+    ===================================== */
+
+    const back=document.getElementById("backToTop");
+
+    window.addEventListener("scroll",()=>{
+
+        if(window.scrollY>350){
+
+            back.style.display="flex";
+
+        }else{
+
+            back.style.display="none";
 
         }
 
     });
 
-}
+    if(back){
 
-/* ======================================
-   Back To Top
-====================================== */
+        back.addEventListener("click",()=>{
 
-const back=document.getElementById("backToTop");
+            window.scrollTo({
 
-window.addEventListener("scroll",()=>{
+                top:0,
 
-    if(window.scrollY>250){
+                behavior:"smooth"
 
-        back.style.display="flex";
+            });
 
-    }
-
-    else{
-
-        back.style.display="none";
+        });
 
     }
 
-});
+    /* =====================================
+       Animated Stats
+    ===================================== */
 
-back.addEventListener("click",()=>{
+    const counters=document.querySelectorAll(".stat-card h2");
 
-    window.scrollTo({
+    let started=false;
 
-        top:0,
+    function animateCounter(){
 
-        behavior:"smooth"
+        if(started) return;
 
-    });
+        const section=document.querySelector(".stats-section");
 
-});
+        if(!section) return;
 
-/* ======================================
-   Scroll Reveal
-====================================== */
+        const trigger=section.getBoundingClientRect().top;
 
-const revealElements=document.querySelectorAll(
+        if(trigger<window.innerHeight-100){
 
-".stat,.links a,.music-player,.footer"
+            started=true;
 
-);
+            counters.forEach(counter=>{
 
-const reveal=()=>{
+                const text=counter.innerText;
 
-    revealElements.forEach(el=>{
+                const number=parseInt(text);
 
-        const top=el.getBoundingClientRect().top;
+                if(isNaN(number)) return;
 
-        if(top<window.innerHeight-80){
+                let current=0;
 
-            el.style.opacity="1";
+                const speed=Math.ceil(number/60);
 
-            el.style.transform="translateY(0)";
+                const timer=setInterval(()=>{
+
+                    current+=speed;
+
+                    if(current>=number){
+
+                        current=number;
+
+                        clearInterval(timer);
+
+                    }
+
+                    counter.innerText=current+"+";
+
+                },25);
+
+            });
 
         }
 
-    });
+    }
 
-};
+    window.addEventListener("scroll",animateCounter);
 
-revealElements.forEach(el=>{
+    animateCounter();
 
-    el.style.opacity="0";
+});// ======================================================
+// BRODAY1 V8 Infinity
+// Part 3
+// Particles + Scroll Reveal + Parallax + Premium Effects
+// ======================================================
 
-    el.style.transform="translateY(40px)";
-
-    el.style.transition=".8s";
-
-});
-
-window.addEventListener("scroll",reveal);
-
-reveal();
-
-/* ======================================
+/* =====================================
    tsParticles
-====================================== */
+===================================== */
 
 tsParticles.load("particles-js",{
 
@@ -412,11 +422,11 @@ tsParticles.load("particles-js",{
         enable:false
     },
 
-    fpsLimit:60,
-
     background:{
         color:"transparent"
     },
+
+    fpsLimit:60,
 
     particles:{
 
@@ -435,21 +445,22 @@ tsParticles.load("particles-js",{
         links:{
             enable:true,
             color:"#00aaff",
-            distance:150,
-            opacity:.35,
+            distance:160,
+            opacity:.3,
             width:1
         },
 
         move:{
             enable:true,
             speed:1.5,
+            direction:"none",
             outModes:{
                 default:"bounce"
             }
         },
 
         opacity:{
-            value:.6
+            value:.7
         },
 
         size:{
@@ -484,7 +495,7 @@ tsParticles.load("particles-js",{
             grab:{
                 distance:180,
                 links:{
-                    opacity:.8
+                    opacity:1
                 }
             },
 
@@ -498,14 +509,140 @@ tsParticles.load("particles-js",{
 
 });
 
-/* ======================================
-   Console
-====================================== */
+/* =====================================
+   Scroll Reveal
+===================================== */
+
+const reveals=document.querySelectorAll(
+
+".hero,.stat-card,.links a,.game-card,.music-player,.contact,.footer"
+
+);
+
+function revealAnimation(){
+
+    reveals.forEach(item=>{
+
+        const top=item.getBoundingClientRect().top;
+
+        if(top<window.innerHeight-100){
+
+            item.style.opacity="1";
+
+            item.style.transform="translateY(0)";
+
+        }
+
+    });
+
+}
+
+reveals.forEach(item=>{
+
+    item.style.opacity="0";
+
+    item.style.transform="translateY(50px)";
+
+    item.style.transition="all .8s ease";
+
+});
+
+window.addEventListener("scroll",revealAnimation);
+
+revealAnimation();
+
+/* =====================================
+   Parallax Hero
+===================================== */
+
+window.addEventListener("mousemove",(e)=>{
+
+    const hero=document.querySelector(".hero");
+
+    if(!hero) return;
+
+    const x=(window.innerWidth/2-e.clientX)/35;
+
+    const y=(window.innerHeight/2-e.clientY)/35;
+
+    hero.style.transform=`translate(${x}px,${y}px)`;
+
+});
+
+/* =====================================
+   Game Card Hover
+===================================== */
+
+document.querySelectorAll(".game-card").forEach(card=>{
+
+    card.addEventListener("mousemove",(e)=>{
+
+        const rect=card.getBoundingClientRect();
+
+        const x=e.clientX-rect.left;
+
+        const y=e.clientY-rect.top;
+
+        card.style.background=
+
+        `radial-gradient(circle at ${x}px ${y}px,
+
+        rgba(0,170,255,.28),
+
+        rgba(255,255,255,.05))`;
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.background="rgba(255,255,255,.05)";
+
+    });
+
+});
+
+/* =====================================
+   Keyboard Shortcut
+===================================== */
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="m"){
+
+        const music=document.getElementById("music");
+
+        const btn=document.getElementById("playMusic");
+
+        if(!music) return;
+
+        if(music.paused){
+
+            music.play();
+
+            btn.innerHTML='<i class="fas fa-pause"></i>';
+
+        }else{
+
+            music.pause();
+
+            btn.innerHTML='<i class="fas fa-play"></i>';
+
+        }
+
+    }
+
+});
+
+/* =====================================
+   Console Message
+===================================== */
 
 console.clear();
 
-console.log("%cBRODAY1 V7 Ultimate",
-"color:#00aaff;font-size:22px;font-weight:bold;");
+console.log("%cBRODAY1 V8 Infinity",
 
-console.log("%cWebsite Loaded Successfully 🚀",
-"color:#00ff99;font-size:14px;");
+"color:#00aaff;font-size:28px;font-weight:bold;");
+
+console.log("%cWebsite Loaded Successfully",
+
+"color:#00ff99;font-size:16px;");
