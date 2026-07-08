@@ -866,3 +866,149 @@ body{
     }
 
 }
+/* ======================================
+   BRODAY1 V7 Hero Section
+====================================== */
+
+.hero{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.verified{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    background:rgba(0,170,255,.15);
+
+    border:1px solid rgba(0,170,255,.35);
+
+    color:#8fd8ff;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+
+    box-shadow:0 0 20px rgba(0,170,255,.2);
+
+}
+
+.verified i{
+
+    color:#00d4ff;
+
+    font-size:20px;
+
+}
+
+.hero h1{
+
+    font-size:64px;
+
+    margin-top:20px;
+
+    letter-spacing:3px;
+
+}
+
+.hero .subtitle{
+
+    display:block;
+
+    margin:20px 0;
+
+    font-size:20px;
+
+    color:#cfe8ff;
+
+}
+
+.hero-buttons{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:16px 32px;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.youtube{
+
+    background:#ff0000;
+
+}
+
+.discord{
+
+    background:#5865F2;
+
+}
+
+.hero-btn:hover{
+
+    transform:translateY(-6px) scale(1.05);
+
+    box-shadow:0 0 30px rgba(255,255,255,.25);
+
+}
+
+.hero-btn i{
+
+    font-size:22px;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.hero-btn{
+
+justify-content:center;
+
+}
+
+}
