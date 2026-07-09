@@ -144,28 +144,22 @@
 
 .loader-progress{
 
-    width:0;
+    width:0%;
 
     height:100%;
 
     border-radius:50px;
 
     background:linear-gradient(
-
-    90deg,
-
-    #0099ff,
-
-    #00ffff,
-
-    #ffffff
-
+        90deg,
+        #0099ff,
+        #00d4ff,
+        #ffffff
     );
 
-    animation:progress 2.5s forwards;
+    transition:width .15s linear;
 
 }
-
 /* Animations */
 
 @keyframes progress{
