@@ -1,16 +1,32 @@
 // ======================================================
-// BRODAY1 V8 Infinity
-// Part 1
-// Loader + Fade + Dynamic Title + Cursor
+// BRODAY1 V9 Galaxy
+// script.js - Part 1
+// Loader • Cursor • Mouse Light • Hero • Scroll
 // ======================================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("BRODAY1 V8 Infinity Loaded");
+    console.log("BRODAY1 V9 Galaxy Loaded 🚀");
 
-    /* =====================================
-       Fade In
-    ===================================== */
+    /* ===========================
+       Loader
+    =========================== */
+
+    const loader = document.querySelector(".loader");
+
+    window.addEventListener("load", () => {
+
+        setTimeout(() => {
+
+            loader.classList.add("hide");
+
+        }, 1200);
+
+    });
+
+    /* ===========================
+       Fade Body
+    =========================== */
 
     document.body.style.opacity = "0";
 
@@ -22,9 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     },100);
 
-    /* =====================================
-       Dynamic Browser Title
-    ===================================== */
+    /* ===========================
+       Dynamic Title
+    =========================== */
 
     const titles = [
 
@@ -36,13 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         "Content Creator",
 
-        "Welcome To BRODAY1"
+        "BRODAY1 Galaxy"
 
     ];
 
     let titleIndex = 0;
 
-    setInterval(()=>{
+    setInterval(() => {
 
         document.title = titles[titleIndex];
 
@@ -56,9 +72,102 @@ document.addEventListener("DOMContentLoaded", () => {
 
     },2500);
 
-    /* =====================================
+    /* ===========================
+       Mouse Light
+    =========================== */
+
+    const light = document.querySelector(".mouse-light");
+
+    document.addEventListener("mousemove",(e)=>{
+
+        if(!light) return;
+
+        light.style.left = e.clientX + "px";
+        light.style.top = e.clientY + "px";
+
+    });
+
+    /* ===========================
+       Custom Cursor
+    =========================== */
+
+    const cursor = document.querySelector(".cursor");
+
+    const cursor2 = document.querySelector(".cursor2");
+
+    document.addEventListener("mousemove",(e)=>{
+
+        if(cursor){
+
+            cursor.style.left = e.clientX+"px";
+            cursor.style.top = e.clientY+"px";
+
+        }
+
+        if(cursor2){
+
+            cursor2.style.left = e.clientX+"px";
+            cursor2.style.top = e.clientY+"px";
+
+        }
+
+    });
+
+    document.addEventListener("mousedown",()=>{
+
+        cursor?.classList.add("active");
+
+    });
+
+    document.addEventListener("mouseup",()=>{
+
+        cursor?.classList.remove("active");
+
+    });
+
+    /* ===========================
+       Hero Animation
+    =========================== */
+
+    const hero = document.querySelector(".hero");
+
+    if(hero){
+
+        hero.animate(
+
+        [
+
+            {
+
+                transform:"translateY(50px)",
+
+                opacity:0
+
+            },
+
+            {
+
+                transform:"translateY(0)",
+
+                opacity:1
+
+            }
+
+        ],
+
+        {
+
+            duration:1200,
+
+            easing:"ease"
+
+        });
+
+    }
+
+    /* ===========================
        Profile Hover
-    ===================================== */
+    =========================== */
 
     const profile = document.querySelector(".profile");
 
@@ -66,9 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         profile.addEventListener("mouseenter",()=>{
 
-            profile.style.transform="scale(1.06) rotate(2deg)";
-
-            profile.style.boxShadow="0 0 70px #00d4ff";
+            profile.style.transform="scale(1.08) rotate(3deg)";
 
         });
 
@@ -76,167 +183,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
             profile.style.transform="";
 
-            profile.style.boxShadow="";
-
         });
 
     }
 
-    /* =====================================
-       Mouse Light
-    ===================================== */
+    /* ===========================
+       Buttons Hover
+    =========================== */
 
-    const light = document.querySelector(".mouse-light");
+    document.querySelectorAll("a").forEach(button=>{
 
-    document.addEventListener("mousemove",(e)=>{
+        button.addEventListener("mouseenter",()=>{
 
-        if(light){
-
-            light.style.left = e.clientX + "px";
-
-            light.style.top = e.clientY + "px";
-
-        }
-
-    });
-
-    /* =====================================
-       Gaming Cursor
-    ===================================== */
-
-    const cursor = document.querySelector(".cursor");
-
-    if(cursor){
-
-        document.addEventListener("mousemove",(e)=>{
-
-            cursor.style.left = e.clientX + "px";
-
-            cursor.style.top = e.clientY + "px";
+            button.style.transform="translateY(-5px) scale(1.03)";
 
         });
 
-        document.addEventListener("mousedown",()=>{
+        button.addEventListener("mouseleave",()=>{
 
-            cursor.classList.add("active");
-
-        });
-
-        document.addEventListener("mouseup",()=>{
-
-            cursor.classList.remove("active");
-
-        });
-
-    }
-
-    /* =====================================
-       Hero Buttons Animation
-    ===================================== */
-
-    document.querySelectorAll(".hero-btn").forEach(btn=>{
-
-        btn.addEventListener("mouseenter",()=>{
-
-            btn.style.transform="translateY(-8px) scale(1.05)";
-
-        });
-
-        btn.addEventListener("mouseleave",()=>{
-
-            btn.style.transform="";
+            button.style.transform="";
 
         });
 
     });
 
-    /* =====================================
-       Social Links Animation
-    ===================================== */
+    /* ===========================
+       Scroll Animation
+    =========================== */
 
-    document.querySelectorAll(".links a").forEach(link=>{
+    window.addEventListener("scroll",()=>{
 
-        link.addEventListener("mouseenter",()=>{
+        const value = window.scrollY;
 
-            link.style.transform="translateY(-8px)";
-
-            link.style.boxShadow="0 0 35px rgba(0,170,255,.45)";
-
-        });
-
-        link.addEventListener("mouseleave",()=>{
-
-            link.style.transform="";
-
-            link.style.boxShadow="";
-
-        });
+        document.querySelector(".bg").style.transform =
+        `translateY(${value*0.15}px)`;
 
     });
 
 });// ======================================================
-// BRODAY1 V8 Infinity
-// Part 2
-// Music + Theme + Back To Top + Counter
+// BRODAY1 V9 Galaxy
+// script.js - Part 2
+// Music • Theme • Back To Top • Counters • Reveal
 // ======================================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================
-       Theme Toggle
-    ===================================== */
-
-    const themeBtn = document.getElementById("theme-toggle");
-
-    if(themeBtn){
-
-        themeBtn.addEventListener("click",()=>{
-
-            document.body.classList.toggle("light-mode");
-
-            if(document.body.classList.contains("light-mode")){
-
-                themeBtn.innerHTML="☀️ Light Mode";
-
-            }else{
-
-                themeBtn.innerHTML="🌙 Dark Mode";
-
-            }
-
-        });
-
-    }
-
-    /* =====================================
+    /* ===========================
        Music Player
-    ===================================== */
+    =========================== */
 
-    const music=document.getElementById("music");
+    const music = document.getElementById("music");
+    const playBtn = document.getElementById("playMusic");
 
-    const playBtn=document.getElementById("playMusic");
+    const progress = document.getElementById("progress");
+    const volume = document.getElementById("volume");
 
-    const progress=document.getElementById("progress");
-
-    const volume=document.getElementById("volume");
-
-    const current=document.getElementById("currentTime");
-
-    const duration=document.getElementById("duration");
+    const currentTime = document.getElementById("currentTime");
+    const duration = document.getElementById("duration");
 
     if(music){
 
-        music.volume=0.4;
+        music.volume = 0.4;
 
-    }
+        music.addEventListener("loadedmetadata",()=>{
 
-    function formatTime(time){
+            progress.max = Math.floor(music.duration);
 
-        const min=Math.floor(time/60);
+            duration.textContent = formatTime(music.duration);
 
-        const sec=Math.floor(time%60);
+        });
 
-        return `${min}:${sec<10?"0":""}${sec}`;
+        music.addEventListener("timeupdate",()=>{
+
+            progress.value = Math.floor(music.currentTime);
+
+            currentTime.textContent = formatTime(music.currentTime);
+
+        });
+
+        music.addEventListener("ended",()=>{
+
+            playBtn.innerHTML =
+            '<i class="fas fa-play"></i>';
+
+            progress.value = 0;
+
+        });
 
     }
 
@@ -248,43 +280,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 music.play();
 
-                playBtn.innerHTML='<i class="fas fa-pause"></i>';
-
-            }else{
-
-                music.pause();
-
-                playBtn.innerHTML='<i class="fas fa-play"></i>';
+                playBtn.innerHTML =
+                '<i class="fas fa-pause"></i>';
 
             }
 
-        });
+            else{
 
-    }
+                music.pause();
 
-    if(music){
+                playBtn.innerHTML =
+                '<i class="fas fa-play"></i>';
 
-        music.addEventListener("loadedmetadata",()=>{
-
-            progress.max=Math.floor(music.duration);
-
-            duration.textContent=formatTime(music.duration);
-
-        });
-
-        music.addEventListener("timeupdate",()=>{
-
-            progress.value=music.currentTime;
-
-            current.textContent=formatTime(music.currentTime);
-
-        });
-
-        music.addEventListener("ended",()=>{
-
-            playBtn.innerHTML='<i class="fas fa-play"></i>';
-
-            progress.value=0;
+            }
 
         });
 
@@ -294,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         progress.addEventListener("input",()=>{
 
-            music.currentTime=progress.value;
+            music.currentTime = progress.value;
 
         });
 
@@ -304,117 +312,399 @@ document.addEventListener("DOMContentLoaded", () => {
 
         volume.addEventListener("input",()=>{
 
-            music.volume=volume.value/100;
+            music.volume = volume.value / 100;
 
         });
 
     }
 
-    /* =====================================
-       Back To Top
-    ===================================== */
+    function formatTime(time){
 
-    const back=document.getElementById("backToTop");
+        const min = Math.floor(time / 60);
+
+        const sec = Math.floor(time % 60);
+
+        return `${min}:${sec < 10 ? "0" : ""}${sec}`;
+
+    }
+
+    /* ===========================
+       Theme Toggle
+    =========================== */
+
+    const themeBtn =
+    document.getElementById("theme-toggle");
+
+    if(themeBtn){
+
+        themeBtn.addEventListener("click",()=>{
+
+            document.body.classList.toggle("light-mode");
+
+            if(document.body.classList.contains("light-mode")){
+
+                themeBtn.innerHTML =
+                "☀️ Light Mode";
+
+            }
+
+            else{
+
+                themeBtn.innerHTML =
+                "🌙 Dark Mode";
+
+            }
+
+        });
+
+    }
+
+    /* ===========================
+       Back To Top
+    =========================== */
+
+    const back =
+    document.getElementById("backToTop");
 
     window.addEventListener("scroll",()=>{
 
-        if(window.scrollY>350){
+        if(window.scrollY > 350){
 
-            back.style.display="flex";
+            back.style.display = "flex";
 
-        }else{
+        }
 
-            back.style.display="none";
+        else{
+
+            back.style.display = "none";
 
         }
 
     });
 
-    if(back){
+    back?.addEventListener("click",()=>{
 
-        back.addEventListener("click",()=>{
+        window.scrollTo({
 
-            window.scrollTo({
+            top:0,
 
-                top:0,
-
-                behavior:"smooth"
-
-            });
+            behavior:"smooth"
 
         });
 
-    }
+    });
 
-    /* =====================================
-       Animated Stats
-    ===================================== */
+    /* ===========================
+       Animated Counters
+    =========================== */
 
-    const counters=document.querySelectorAll(".stat-card h2");
+    const counters =
+    document.querySelectorAll(".stat-card h2");
 
-    let started=false;
+    counters.forEach(counter=>{
 
-    function animateCounter(){
+        const target =
+        parseInt(counter.innerText);
 
-        if(started) return;
+        if(isNaN(target)) return;
 
-        const section=document.querySelector(".stats-section");
+        let current = 0;
 
-        if(!section) return;
+        const update = ()=>{
 
-        const trigger=section.getBoundingClientRect().top;
+            current += Math.ceil(target / 60);
 
-        if(trigger<window.innerHeight-100){
+            if(current >= target){
 
-            started=true;
+                counter.innerText = target + "+";
 
-            counters.forEach(counter=>{
+            }
 
-                const text=counter.innerText;
+            else{
 
-                const number=parseInt(text);
+                counter.innerText = current + "+";
 
-                if(isNaN(number)) return;
+                requestAnimationFrame(update);
 
-                let current=0;
+            }
 
-                const speed=Math.ceil(number/60);
+        };
 
-                const timer=setInterval(()=>{
+        update();
 
-                    current+=speed;
+    });
 
-                    if(current>=number){
+    /* ===========================
+       Reveal Animation
+    =========================== */
 
-                        current=number;
+    const revealItems =
+    document.querySelectorAll(
 
-                        clearInterval(timer);
+        ".stat-card,.game-card,.setup-card,.discord-card,.contact"
 
-                    }
+    );
 
-                    counter.innerText=current+"+";
+    const observer =
+    new IntersectionObserver((entries)=>{
 
-                },25);
+        entries.forEach(entry=>{
 
-            });
+            if(entry.isIntersecting){
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform =
+                "translateY(0)";
+
+            }
+
+        });
+
+    },{
+
+        threshold:0.2
+
+    });
+
+    revealItems.forEach(item=>{
+
+        item.style.opacity = "0";
+
+        item.style.transform =
+        "translateY(40px)";
+
+        item.style.transition =
+        ".8s ease";
+
+        observer.observe(item);
+
+    });
+
+});// ======================================================
+// BRODAY1 V9 Galaxy
+// script.js - Part 3
+// Galaxy • Particles • Performance • Final Effects
+// ======================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ===========================
+       Galaxy Parallax
+    =========================== */
+
+    const video = document.querySelector(".video-bg");
+
+    window.addEventListener("scroll", () => {
+
+        if(video){
+
+            video.style.transform =
+            `translateY(${window.scrollY * 0.25}px)`;
 
         }
 
-    }
+    });
 
-    window.addEventListener("scroll",animateCounter);
+    /* ===========================
+       Floating Cards
+    =========================== */
 
-    animateCounter();
+    document.querySelectorAll(
+        ".game-card,.stat,.music-player,.hero-btn"
+    ).forEach((card,index)=>{
 
-});// ======================================================
-// BRODAY1 V8 Infinity
-// Part 3
-// Particles + Scroll Reveal + Parallax + Premium Effects
-// ======================================================
+        card.animate(
 
-/* =====================================
-   tsParticles
-===================================== */
+        [
+
+            {
+
+                transform:"translateY(0px)"
+
+            },
+
+            {
+
+                transform:"translateY(-8px)"
+
+            },
+
+            {
+
+                transform:"translateY(0px)"
+
+            }
+
+        ],
+
+        {
+
+            duration:3500 + (index * 300),
+
+            iterations:Infinity,
+
+            easing:"ease-in-out"
+
+        });
+
+    });
+
+    /* ===========================
+       Glow Mouse Effect
+    =========================== */
+
+    document.addEventListener("mousemove",(e)=>{
+
+        document.documentElement.style.setProperty(
+
+            "--mouse-x",
+
+            e.clientX + "px"
+
+        );
+
+        document.documentElement.style.setProperty(
+
+            "--mouse-y",
+
+            e.clientY + "px"
+
+        );
+
+    });
+
+    /* ===========================
+       Ripple Buttons
+    =========================== */
+
+    document.querySelectorAll("button,a").forEach(btn=>{
+
+        btn.addEventListener("click",(e)=>{
+
+            const ripple =
+            document.createElement("span");
+
+            ripple.className = "ripple";
+
+            ripple.style.left =
+            e.offsetX + "px";
+
+            ripple.style.top =
+            e.offsetY + "px";
+
+            btn.appendChild(ripple);
+
+            setTimeout(()=>{
+
+                ripple.remove();
+
+            },700);
+
+        });
+
+    });
+
+    /* ===========================
+       Keyboard Shortcuts
+    =========================== */
+
+    document.addEventListener("keydown",(e)=>{
+
+        if(e.code === "Space"){
+
+            const music =
+            document.getElementById("music");
+
+            const play =
+            document.getElementById("playMusic");
+
+            if(music){
+
+                e.preventDefault();
+
+                if(music.paused){
+
+                    music.play();
+
+                    if(play){
+
+                        play.innerHTML =
+                        '<i class="fas fa-pause"></i>';
+
+                    }
+
+                }
+
+                else{
+
+                    music.pause();
+
+                    if(play){
+
+                        play.innerHTML =
+                        '<i class="fas fa-play"></i>';
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+    /* ===========================
+       FPS Friendly
+    =========================== */
+
+    let ticking = false;
+
+    window.addEventListener("scroll",()=>{
+
+        if(!ticking){
+
+            requestAnimationFrame(()=>{
+
+                ticking = false;
+
+            });
+
+            ticking = true;
+
+        }
+
+    });
+
+    /* ===========================
+       Console Signature
+    =========================== */
+
+    console.log(
+
+`%c
+██████╗ ██████╗  ██████╗
+██╔══██╗██╔══██╗██╔═══██╗
+██████╔╝██████╔╝██║   ██║
+██╔══██╗██╔══██╗██║   ██║
+██████╔╝██║  ██║╚██████╔╝
+╚═════╝ ╚═╝  ╚═╝ ╚═════╝
+
+BRODAY1 V9 GALAXY
+`,
+
+"color:#00aaff;font-size:14px;font-weight:bold"
+
+);
+
+    console.log("Galaxy Mode Activated ⭐");
+
+});
+
+/* ===========================
+   tsParticles Galaxy
+=========================== */
 
 tsParticles.load("particles-js",{
 
@@ -431,7 +721,7 @@ tsParticles.load("particles-js",{
     particles:{
 
         number:{
-            value:90,
+            value:120,
             density:{
                 enable:true,
                 area:900
@@ -439,21 +729,24 @@ tsParticles.load("particles-js",{
         },
 
         color:{
-            value:"#00aaff"
+            value:[
+                "#00aaff",
+                "#00ffff",
+                "#ffffff"
+            ]
         },
 
         links:{
             enable:true,
             color:"#00aaff",
-            distance:160,
-            opacity:.3,
+            distance:170,
+            opacity:.25,
             width:1
         },
 
         move:{
             enable:true,
-            speed:1.5,
-            direction:"none",
+            speed:1.2,
             outModes:{
                 default:"bounce"
             }
@@ -493,14 +786,19 @@ tsParticles.load("particles-js",{
         modes:{
 
             grab:{
+
                 distance:180,
+
                 links:{
                     opacity:1
                 }
+
             },
 
             push:{
-                quantity:4
+
+                quantity:5
+
             }
 
         }
@@ -509,140 +807,4 @@ tsParticles.load("particles-js",{
 
 });
 
-/* =====================================
-   Scroll Reveal
-===================================== */
-
-const reveals=document.querySelectorAll(
-
-".hero,.stat-card,.links a,.game-card,.music-player,.contact,.footer"
-
-);
-
-function revealAnimation(){
-
-    reveals.forEach(item=>{
-
-        const top=item.getBoundingClientRect().top;
-
-        if(top<window.innerHeight-100){
-
-            item.style.opacity="1";
-
-            item.style.transform="translateY(0)";
-
-        }
-
-    });
-
-}
-
-reveals.forEach(item=>{
-
-    item.style.opacity="0";
-
-    item.style.transform="translateY(50px)";
-
-    item.style.transition="all .8s ease";
-
-});
-
-window.addEventListener("scroll",revealAnimation);
-
-revealAnimation();
-
-/* =====================================
-   Parallax Hero
-===================================== */
-
-window.addEventListener("mousemove",(e)=>{
-
-    const hero=document.querySelector(".hero");
-
-    if(!hero) return;
-
-    const x=(window.innerWidth/2-e.clientX)/35;
-
-    const y=(window.innerHeight/2-e.clientY)/35;
-
-    hero.style.transform=`translate(${x}px,${y}px)`;
-
-});
-
-/* =====================================
-   Game Card Hover
-===================================== */
-
-document.querySelectorAll(".game-card").forEach(card=>{
-
-    card.addEventListener("mousemove",(e)=>{
-
-        const rect=card.getBoundingClientRect();
-
-        const x=e.clientX-rect.left;
-
-        const y=e.clientY-rect.top;
-
-        card.style.background=
-
-        `radial-gradient(circle at ${x}px ${y}px,
-
-        rgba(0,170,255,.28),
-
-        rgba(255,255,255,.05))`;
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.background="rgba(255,255,255,.05)";
-
-    });
-
-});
-
-/* =====================================
-   Keyboard Shortcut
-===================================== */
-
-document.addEventListener("keydown",(e)=>{
-
-    if(e.key==="m"){
-
-        const music=document.getElementById("music");
-
-        const btn=document.getElementById("playMusic");
-
-        if(!music) return;
-
-        if(music.paused){
-
-            music.play();
-
-            btn.innerHTML='<i class="fas fa-pause"></i>';
-
-        }else{
-
-            music.pause();
-
-            btn.innerHTML='<i class="fas fa-play"></i>';
-
-        }
-
-    }
-
-});
-
-/* =====================================
-   Console Message
-===================================== */
-
-console.clear();
-
-console.log("%cBRODAY1 V8 Infinity",
-
-"color:#00aaff;font-size:28px;font-weight:bold;");
-
-console.log("%cWebsite Loaded Successfully",
-
-"color:#00ff99;font-size:16px;");
+console.log("🚀 BRODAY1 V9 Galaxy Ready");
