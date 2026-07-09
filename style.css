@@ -1,7 +1,6 @@
 /* =====================================================
    BRODAY1 V9 Galaxy
-   Part 1
-   Reset + Body + Galaxy Background + Hero
+   PART 1
 ===================================================== */
 
 *{
@@ -16,85 +15,66 @@ html{
 }
 
 body{
-
     background:#030712;
     color:#fff;
     overflow-x:hidden;
     position:relative;
-
 }
 
-/* ===========================
+/* ==========================
 Background
-=========================== */
+========================== */
 
 .bg{
-
     position:fixed;
     inset:0;
 
     background:
-
     radial-gradient(circle at top,#0099ff22,transparent 55%),
-
     radial-gradient(circle at bottom,#00d4ff18,transparent 50%),
-
     linear-gradient(180deg,#020617,#050816);
 
     z-index:-20;
-
 }
 
-/* ===========================
-Video
-=========================== */
+/* ==========================
+Video Background
+========================== */
 
 .video-bg{
-
     position:fixed;
     inset:0;
     overflow:hidden;
     z-index:-30;
-
 }
 
 #bgVideo{
-
     width:100%;
     height:100%;
     object-fit:cover;
     filter:brightness(.35);
-
 }
 
 .video-overlay{
-
     position:absolute;
     inset:0;
 
     background:
-
     linear-gradient(
-
     rgba(0,0,0,.35),
-
     rgba(0,0,0,.65)
-
     );
-
 }
 
-/* ===========================
-Nebula
-=========================== */
+/* ==========================
+Nebula Effect
+========================== */
 
 .nebula{
-
     position:fixed;
     inset:0;
 
     background:
-
     radial-gradient(circle,#00aaff20 0%,transparent 60%);
 
     filter:blur(120px);
@@ -102,91 +82,73 @@ Nebula
     animation:nebula 15s infinite alternate;
 
     z-index:-18;
-
 }
 
 @keyframes nebula{
 
-0%{
+    0%{
+        transform:translate(-120px,-50px);
+    }
 
-transform:translate(-120px,-50px);
-
-}
-
-100%{
-
-transform:translate(120px,80px);
+    100%{
+        transform:translate(120px,80px);
+    }
 
 }
 
-}
-
-/* ===========================
+/* ==========================
 Aurora
-=========================== */
+========================== */
 
 .aurora{
-
     position:fixed;
     inset:0;
 
     background:
-
     linear-gradient(
-
     120deg,
-
     transparent,
-
     rgba(0,170,255,.08),
-
     transparent
-
     );
 
     animation:auroraMove 8s linear infinite;
 
     z-index:-17;
-
 }
 
 @keyframes auroraMove{
 
-0%{
+    0%{
+        transform:translateX(-100%);
+    }
 
-transform:translateX(-100%);
-
-}
-
-100%{
-
-transform:translateX(100%);
+    100%{
+        transform:translateX(100%);
+    }
 
 }
 
-}
-
-/* ===========================
+/* ==========================
 Container
-=========================== */
+========================== */
 
 .container{
-
     width:min(1200px,92%);
     margin:auto;
     padding:70px 0;
     position:relative;
     z-index:20;
-
 }
 
-/* ===========================
-Hero
-=========================== */
+/* ==========================
+Hero Section
+========================== */
 
 .hero{
 
     text-align:center;
+
     padding:70px 35px;
 
     border-radius:35px;
@@ -198,14 +160,13 @@ Hero
     border:1px solid rgba(0,170,255,.25);
 
     box-shadow:
-
     0 0 40px rgba(0,170,255,.15);
 
 }
 
-/* ===========================
-Verified
-=========================== */
+/* ==========================
+Verified Badge
+========================== */
 
 .verified{
 
@@ -230,14 +191,12 @@ Verified
 }
 
 .verified i{
-
     color:#00d4ff;
-
 }
 
-/* ===========================
+/* ==========================
 Profile
-=========================== */
+========================== */
 
 .profile-wrapper{
 
@@ -264,7 +223,6 @@ Profile
     border:5px solid #00aaff;
 
     box-shadow:
-
     0 0 45px #00aaff;
 
     position:relative;
@@ -273,9 +231,9 @@ Profile
 
 }
 
-/* ===========================
+/* ==========================
 Profile Rings
-=========================== */
+========================== */
 
 .profile-ring{
 
@@ -303,23 +261,19 @@ Profile Rings
 
 @keyframes rotateRing{
 
-from{
+    from{
+        transform:rotate(0deg);
+    }
 
-transform:rotate(0deg);
-
-}
-
-to{
-
-transform:rotate(360deg);
+    to{
+        transform:rotate(360deg);
+    }
 
 }
 
-}
-
-/* ===========================
+/* ==========================
 Hero Title
-=========================== */
+========================== */
 
 .hero h1{
 
@@ -330,7 +284,6 @@ Hero Title
     color:#fff;
 
     text-shadow:
-
     0 0 25px #00aaff;
 
 }
@@ -347,13 +300,13 @@ Hero Title
 
 }/* =====================================================
    BRODAY1 V9 Galaxy
-   Part 2
+   PART 2
    Status + Buttons + Stats + Discord + Setup
 ===================================================== */
 
-/* ===========================
+/* ==========================
 Status
-=========================== */
+========================== */
 
 .status{
 
@@ -373,9 +326,9 @@ Status
 
     border:1px solid rgba(0,170,255,.25);
 
-    font-weight:600;
-
     color:#dff6ff;
+
+    font-weight:600;
 
 }
 
@@ -411,9 +364,9 @@ transform:scale(1.4);
 
 }
 
-/* ===========================
+/* ==========================
 Hero Buttons
-=========================== */
+========================== */
 
 .hero-buttons{
 
@@ -421,25 +374,17 @@ Hero Buttons
 
     justify-content:center;
 
+    align-items:center;
+
     gap:20px;
 
-    margin-top:35px;
-
     flex-wrap:wrap;
+
+    margin-top:35px;
 
 }
 
 .hero-btn{
-
-    padding:16px 32px;
-
-    border-radius:18px;
-
-    text-decoration:none;
-
-    color:white;
-
-    font-weight:600;
 
     display:flex;
 
@@ -447,7 +392,23 @@ Hero Buttons
 
     gap:10px;
 
+    padding:16px 34px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    font-weight:600;
+
     transition:.35s;
+
+}
+
+.hero-btn i{
+
+    font-size:20px;
 
 }
 
@@ -471,9 +432,9 @@ Hero Buttons
 
 }
 
-/* ===========================
-Section Title
-=========================== */
+/* ==========================
+Section Titles
+========================== */
 
 .section-title{
 
@@ -483,15 +444,15 @@ Section Title
 
     margin-bottom:45px;
 
-    color:#ffffff;
+    color:#fff;
 
     text-shadow:0 0 20px #00aaff;
 
 }
 
-/* ===========================
+/* ==========================
 Stats
-=========================== */
+========================== */
 
 .stats-section{
 
@@ -509,6 +470,8 @@ Stats
 
     padding:35px;
 
+    text-align:center;
+
     border-radius:24px;
 
     background:rgba(255,255,255,.05);
@@ -516,8 +479,6 @@ Stats
     backdrop-filter:blur(18px);
 
     border:1px solid rgba(0,170,255,.20);
-
-    text-align:center;
 
     transition:.35s;
 
@@ -527,9 +488,7 @@ Stats
 
     transform:translateY(-10px);
 
-    box-shadow:
-
-    0 0 30px rgba(0,170,255,.35);
+    box-shadow:0 0 30px rgba(0,170,255,.35);
 
 }
 
@@ -557,9 +516,9 @@ Stats
 
 }
 
-/* ===========================
+/* ==========================
 Discord Card
-=========================== */
+========================== */
 
 .discord-card{
 
@@ -627,15 +586,15 @@ Discord Card
 
     padding:15px 30px;
 
-    background:#5865F2;
-
-    color:white;
+    border-radius:16px;
 
     text-decoration:none;
 
-    border-radius:16px;
+    color:#fff;
 
-    transition:.3s;
+    background:#5865F2;
+
+    transition:.35s;
 
 }
 
@@ -647,9 +606,9 @@ Discord Card
 
 }
 
-/* ===========================
+/* ==========================
 Gaming Setup
-=========================== */
+========================== */
 
 .setup{
 
@@ -679,6 +638,8 @@ Gaming Setup
 
     border:1px solid rgba(0,170,255,.22);
 
+    backdrop-filter:blur(18px);
+
     transition:.35s;
 
 }
@@ -703,9 +664,9 @@ Gaming Setup
 
 .setup-card h3{
 
-    margin-bottom:12px;
-
     font-size:24px;
+
+    margin-bottom:12px;
 
 }
 
@@ -715,13 +676,75 @@ Gaming Setup
 
 }/* =====================================================
    BRODAY1 V9 Galaxy
-   Part 3
-   Games + Music + Contact + Footer + Responsive
+   PART 3
+   Social + Games + Music + Contact + Footer + Responsive
 ===================================================== */
 
-/* ===========================
+/* ==========================
+Social Links
+========================== */
+
+.socials{
+    margin-top:90px;
+}
+
+.links{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:22px;
+
+}
+
+.links a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:18px 22px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(0,170,255,.20);
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s;
+
+}
+
+.links a i{
+
+    font-size:24px;
+
+    color:#00d4ff;
+
+}
+
+.links a:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00aaff;
+
+    box-shadow:0 0 25px rgba(0,170,255,.35);
+
+}
+
+/* ==========================
 Featured Games
-=========================== */
+========================== */
 
 .games{
 
@@ -757,10 +780,9 @@ Featured Games
 
 .game-card:hover{
 
-    transform:translateY(-12px) scale(1.02);
+    transform:translateY(-12px) scale(1.03);
 
-    box-shadow:
-    0 0 35px rgba(0,170,255,.35);
+    box-shadow:0 0 35px rgba(0,170,255,.35);
 
 }
 
@@ -792,9 +814,9 @@ Featured Games
 
 }
 
-/* ===========================
+/* ==========================
 Music Player
-=========================== */
+========================== */
 
 .music-player{
 
@@ -834,13 +856,13 @@ Music Player
 
     border-radius:50%;
 
-    background:linear-gradient(135deg,#0099ff,#00d4ff);
-
-    color:white;
-
     cursor:pointer;
 
+    color:#fff;
+
     font-size:24px;
+
+    background:linear-gradient(135deg,#0099ff,#00d4ff);
 
     transition:.3s;
 
@@ -848,7 +870,7 @@ Music Player
 
 .music-header button:hover{
 
-    transform:scale(1.12);
+    transform:scale(1.1);
 
     box-shadow:0 0 30px #00aaff;
 
@@ -868,9 +890,9 @@ Music Player
 
 .song-details p{
 
-    margin-top:8px;
-
     color:#9edbff;
+
+    margin-top:6px;
 
 }
 
@@ -898,10 +920,6 @@ Music Player
 
     flex:1;
 
-    height:7px;
-
-    cursor:pointer;
-
 }
 
 .volume-wrapper{
@@ -918,21 +936,17 @@ Music Player
 
     color:#00d4ff;
 
-    font-size:18px;
-
 }
 
 #volume{
 
     flex:1;
 
-    height:7px;
-
 }
 
-/* ===========================
+/* ==========================
 Contact
-=========================== */
+========================== */
 
 .contact{
 
@@ -980,13 +994,13 @@ Contact
 
     border-radius:18px;
 
-    background:linear-gradient(135deg,#0099ff,#00d4ff);
-
-    color:white;
-
     text-decoration:none;
 
-    font-weight:bold;
+    color:#fff;
+
+    font-weight:600;
+
+    background:linear-gradient(135deg,#0099ff,#00d4ff);
 
     transition:.35s;
 
@@ -1000,9 +1014,9 @@ Contact
 
 }
 
-/* ===========================
+/* ==========================
 Footer
-=========================== */
+========================== */
 
 .footer{
 
@@ -1024,9 +1038,9 @@ Footer
 
 }
 
-/* ===========================
+/* ==========================
 Back To Top
-=========================== */
+========================== */
 
 #backToTop{
 
@@ -1044,15 +1058,15 @@ Back To Top
 
     border-radius:50%;
 
-    background:linear-gradient(135deg,#0099ff,#00d4ff);
-
-    color:white;
-
-    font-size:20px;
-
     cursor:pointer;
 
     display:none;
+
+    color:#fff;
+
+    font-size:20px;
+
+    background:linear-gradient(135deg,#0099ff,#00d4ff);
 
     z-index:999;
 
@@ -1068,11 +1082,11 @@ Back To Top
 
 }
 
-/* ===========================
+/* ==========================
 Responsive
-=========================== */
+========================== */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
 .hero{
 
@@ -1082,15 +1096,7 @@ padding:45px 20px;
 
 .hero h1{
 
-font-size:48px;
-
-}
-
-.profile{
-
-width:170px;
-
-height:170px;
+font-size:46px;
 
 }
 
@@ -1102,11 +1108,49 @@ height:170px;
 
 }
 
+.profile{
+
+width:170px;
+
+height:170px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.stats-section{
+
+grid-template-columns:1fr;
+
+}
+
 .discord-card{
 
 grid-template-columns:1fr;
 
 text-align:center;
+
+}
+
+.setup-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.links{
+
+grid-template-columns:1fr;
+
+}
+
+.games-grid{
+
+grid-template-columns:1fr;
 
 }
 
@@ -1118,39 +1162,15 @@ text-align:center;
 
 }
 
-.song-details{
-
-text-align:center;
-
-}
-
 .progress-wrapper{
 
 flex-direction:column;
 
 }
 
-.games-grid{
+.contact{
 
-grid-template-columns:1fr;
-
-}
-
-.stats-section{
-
-grid-template-columns:1fr;
-
-}
-
-.setup-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.hero-buttons{
-
-flex-direction:column;
+padding:40px 20px;
 
 }
 
