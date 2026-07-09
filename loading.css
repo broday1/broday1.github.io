@@ -1,17 +1,19 @@
-/* ==========================================
-   BRODAY1 V6.3 Premium Loading Screen
-========================================== */
+/* ===================================================
+   BRODAY1 V9 Galaxy Ultimate Loader
+=================================================== */
 
 .loader{
     position:fixed;
     inset:0;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:#050816;
+    flex-direction:column;
+    background:
+    radial-gradient(circle at center,#0b1b40,#050816 70%);
+    overflow:hidden;
     z-index:999999;
-    transition:opacity .8s ease,visibility .8s ease;
+    transition:1s;
 }
 
 .loader.hide{
@@ -19,68 +21,246 @@
     visibility:hidden;
 }
 
-.loader h1{
-    font-size:60px;
-    color:#00aaff;
-    letter-spacing:8px;
-    text-transform:uppercase;
-    text-shadow:
-        0 0 15px #00aaff,
-        0 0 35px #00aaff;
-    animation:logoGlow 1.8s infinite alternate;
-}
+/* Galaxy Background */
 
-.loader span{
-    margin-top:35px;
-    width:280px;
-    height:8px;
-    border-radius:50px;
-    overflow:hidden;
-    background:rgba(255,255,255,.08);
-    position:relative;
-}
+.loader::before{
 
-.loader span::before{
     content:"";
+
     position:absolute;
-    inset:0;
-    width:40%;
+
+    width:900px;
+    height:900px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(0,170,255,.25),
+    transparent 70%);
+
+    animation:pulseGalaxy 5s infinite;
+
+}
+
+.loader::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    border:2px solid rgba(0,170,255,.15);
+
+    border-radius:50%;
+
+    animation:rotateGalaxy 10s linear infinite;
+
+}
+
+/* Logo */
+
+.loader h1{
+
+    position:relative;
+
+    font-size:65px;
+
+    color:#fff;
+
+    letter-spacing:10px;
+
+    text-transform:uppercase;
+
+    z-index:5;
+
+    text-shadow:
+    0 0 15px #00aaff,
+    0 0 40px #00aaff,
+    0 0 80px #00ffff;
+
+    animation:logoFloat 2s ease-in-out infinite;
+
+}
+
+/* Loading Text */
+
+.loader p{
+
+    margin-top:18px;
+
+    color:#7ecbff;
+
+    font-size:16px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    animation:blink 1.2s infinite;
+
+}
+
+/* Circle */
+
+.loader-circle{
+
+    margin-top:45px;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    border:5px solid rgba(255,255,255,.08);
+
+    border-top:5px solid #00aaff;
+
+    border-right:5px solid #00ffff;
+
+    animation:spin 1s linear infinite;
+
+}
+
+/* Progress */
+
+.loader-bar{
+
+    width:300px;
+
+    height:8px;
+
+    background:rgba(255,255,255,.08);
+
     border-radius:50px;
+
+    margin-top:40px;
+
+    overflow:hidden;
+
+}
+
+.loader-progress{
+
+    width:0;
+
+    height:100%;
+
+    border-radius:50px;
+
     background:linear-gradient(
-        90deg,
-        #0099ff,
-        #00d4ff,
-        #00ffff
+
+    90deg,
+
+    #0099ff,
+
+    #00ffff,
+
+    #ffffff
+
     );
-    animation:loading 2s infinite;
-}
 
-@keyframes loading{
-
-    0%{
-        left:-40%;
-    }
-
-    100%{
-        left:100%;
-    }
+    animation:progress 2.5s forwards;
 
 }
 
-@keyframes logoGlow{
+/* Animations */
 
-    from{
-        text-shadow:
-        0 0 10px #00aaff,
-        0 0 20px #00aaff;
-    }
+@keyframes progress{
 
-    to{
-        text-shadow:
-        0 0 25px #00d4ff,
-        0 0 50px #00d4ff,
-        0 0 80px #00ffff;
-    }
+0%{
+
+width:0;
+
+}
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes logoFloat{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes rotateGalaxy{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes pulseGalaxy{
+
+0%{
+
+transform:scale(.8);
+
+opacity:.3;
+
+}
+
+50%{
+
+transform:scale(1);
+
+opacity:.7;
+
+}
+
+100%{
+
+transform:scale(.8);
+
+opacity:.3;
+
+}
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:.35;
+
+}
 
 }
 
@@ -88,17 +268,26 @@
 
 @media(max-width:768px){
 
-    .loader h1{
+.loader h1{
 
-        font-size:40px;
-        letter-spacing:4px;
+font-size:42px;
 
-    }
+letter-spacing:5px;
 
-    .loader span{
+}
 
-        width:220px;
+.loader-bar{
 
-    }
+width:220px;
+
+}
+
+.loader-circle{
+
+width:70px;
+
+height:70px;
+
+}
 
 }
